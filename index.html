@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Among the Dunes — Publisher Submission Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sand-light: #F5EDE4;
+            --sand: #E8DCC8;
+            --sand-dark: #D4C4A8;
+            --ocean: #2C5F7C;
+            --ocean-deep: #1A3D50;
+            --ocean-light: #5A9AB8;
+            --dune-gold: #C4A35A;
+            --dune-amber: #B8860B;
+            --text-dark: #2A2A2A;
+            --text-light: #F5EDE4;
+            --success: #4A7C59;
+            --warning: #B8860B;
+            --accent: #C4785A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--sand-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 50%, var(--ocean-light) 100%);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath fill='%23E8DCC8' d='M0,160 C240,100 480,180 720,140 C960,100 1200,160 1440,120 L1440,200 L0,200 Z'/%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 180px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%23F5EDE4' d='M0,140 C360,180 720,100 1080,150 C1260,170 1380,130 1440,140 L1440,180 L0,180 Z'/%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .award-badge {
+            display: inline-block;
+            background: var(--dune-gold);
+            color: var(--ocean-deep);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--sand);
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--sand);
+            margin-bottom: 2rem;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-description {
+            color: var(--sand-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.5s backwards;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--sand-light);
+            color: var(--ocean-deep);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .hero-cta:hover {
+            background: var(--dune-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-cta svg {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(5px);
+        }
+
+        /* Navigation Tabs */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            background: var(--sand);
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-tabs {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tab {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 1rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--ocean);
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-tab:hover {
+            background: rgba(44, 95, 124, 0.05);
+        }
+
+        .nav-tab.active {
+            color: var(--ocean-deep);
+            background: var(--sand-light);
+        }
+
+        .nav-tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--dune-gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-tab.active::after {
+            width: 60%;
+        }
+
+        .nav-tab-number {
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--ocean-deep);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            color: var(--ocean);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--ocean-deep);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card h3 .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--sand);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        /* Publisher Cards */
+        .publisher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .publisher-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .publisher-card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+
+        .publisher-card-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--ocean) 0%, var(--ocean-deep) 100%);
+            color: white;
+            position: relative;
+        }
+
+        .publisher-card.medium .publisher-card-header {
+            background: linear-gradient(135deg, var(--dune-gold) 0%, var(--dune-amber) 100%);
+        }
+
+        .publisher-card.low .publisher-card-header {
+            background: linear-gradient(135deg, var(--accent) 0%, #A66B50 100%);
+        }
+
+        .priority-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .publisher-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .publisher-card .type {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        .publisher-card-body {
+            padding: 1.5rem;
+        }
+
+        .publisher-card-body p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .publisher-card-body .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--ocean);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .publisher-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--sand-light);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--ocean-deep);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-top: 0.5rem;
+        }
+
+        .publisher-email:hover {
+            background: var(--sand);
+        }
+
+        .copy-btn {
+            background: var(--ocean);
+            color: white;
+            border: none;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: var(--ocean-deep);
+        }
+
+        .copy-btn.copied {
+            background: var(--success);
+        }
+
+        /* Email Templates */
+        .template-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .template-tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--sand);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--ocean);
+            transition: all 0.2s ease;
+        }
+
+        .template-tab:hover {
+            background: var(--sand-dark);
+        }
+
+        .template-tab.active {
+            background: var(--ocean);
+            color: white;
+        }
+
+        .email-template {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .email-template.active {
+            display: block;
+        }
+
+        .email-header {
+            background: var(--sand);
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--sand-dark);
+        }
+
+        .email-subject {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .email-subject strong {
+            color: var(--ocean);
+        }
+
+        .email-body {
+            padding: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .email-body .placeholder {
+            background: var(--sand);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-style: italic;
+            color: var(--ocean);
+        }
+
+        .email-body .highlight {
+            background: linear-gradient(180deg, transparent 60%, var(--dune-gold) 60%);
+            font-weight: 500;
+        }
+
+        .copy-template-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 1rem;
+            background: var(--ocean);
+            color: white;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-template-btn:hover {
+            background: var(--ocean-deep);
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--sand);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--ocean);
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+            margin-top: 0.1rem;
+        }
+
+        .checklist-checkbox:hover {
+            background: var(--sand);
+        }
+
+        .checklist-checkbox.checked {
+            background: var(--ocean);
+            border-color: var(--ocean);
+        }
+
+        .checklist-checkbox.checked svg {
+            display: block;
+        }
+
+        .checklist-checkbox svg {
+            display: none;
+            width: 14px;
+            height: 14px;
+            stroke: white;
+            stroke-width: 3;
+        }
+
+        .checklist-content h4 {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .checklist-content p {
+            font-size: 0.9rem;
+            color: var(--ocean);
+        }
+
+        .checklist-item.completed .checklist-content h4 {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: var(--sand);
+            border-radius: 50px;
+            height: 12px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--ocean) 0%, var(--ocean-light) 100%);
+            border-radius: 50px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--ocean);
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--sand-dark);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -2rem;
+            width: 20px;
+            height: 20px;
+            background: var(--ocean);
+            border-radius: 50%;
+            transform: translateX(-8.5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-marker::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .timeline-content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--ocean-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        /* Talking Points */
+        .talking-point {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--sand-light);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--dune-gold);
+        }
+
+        .talking-point .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .talking-point h4 {
+            font-size: 1rem;
+            color: var(--ocean-deep);
+            margin-bottom: 0.25rem;
+        }
+
+        .talking-point p {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, var(--ocean) 0%, var(--ocean-deep) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .quote-box blockquote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .quote-box cite {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Tips Grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .tip-card.do {
+            border-top: 4px solid var(--success);
+        }
+
+        .tip-card.dont {
+            border-top: 4px solid var(--accent);
+        }
+
+        .tip-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-card.do h4 {
+            color: var(--success);
+        }
+
+        .tip-card.dont h4 {
+            color: var(--accent);
+        }
+
+        .tip-card ul {
+            list-style: none;
+        }
+
+        .tip-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .tip-card.do li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .tip-card.dont li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: var(--sand);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--ocean);
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            background: var(--sand-dark);
+        }
+
+        .filter-btn.active {
+            background: var(--ocean);
+            color: white;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--ocean-deep);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-tab {
+                min-width: 120px;
+                padding: 1rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .publisher-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--sand);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--ocean-light);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--ocean);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="award-badge">🏆 PEN/Heim Translation Fund Grant Winner</div>
+            <h1><em>Among the Dunes</em></h1>
+            <p class="hero-subtitle">by Louis Camara · Translated by Dominica Chang</p>
+            <p class="hero-description">
+                Your complete, interactive guide to finding the perfect publisher for your award-winning Senegalese novel. 
+                Everything you need—from research to submission—in one place.
+            </p>
+            <a href="#start" class="hero-cta" onclick="showSection('overview')">
+                Begin Your Journey
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav-container" id="start">
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">
+                <span class="nav-tab-number">01</span>
+                Overview
+            </button>
+            <button class="nav-tab" onclick="showSection('publishers')">
+                <span class="nav-tab-number">02</span>
+                Publishers
+            </button>
+            <button class="nav-tab" onclick="showSection('templates')">
+                <span class="nav-tab-number">03</span>
+                Email Templates
+            </button>
+            <button class="nav-tab" onclick="showSection('checklist')">
+                <span class="nav-tab-number">04</span>
+                Checklist
+            </button>
+            <button class="nav-tab" onclick="showSection('timeline')">
+                <span class="nav-tab-number">05</span>
+                Timeline
+            </button>
+            <button class="nav-tab" onclick="showSection('tips')">
+                <span class="nav-tab-number">06</span>
+                Pro Tips
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Section 1: Overview -->
+        <section id="overview" class="section active">
+            <div class="section-header">
+                <h2>Your Secret Weapons</h2>
+                <p>You're not just any translator. Here's why publishers will want to hear from you.</p>
+            </div>
+
+            <div class="quote-box">
+                <blockquote>"A pitch-perfect translation... expertly handled with a keen ear and a deft hand."</blockquote>
+                <cite>— PEN/Heim Translation Fund Judges</cite>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">🏆</span> The PEN/Heim Advantage</h3>
+                <p>Your $4,000 PEN/Heim Translation Fund Grant isn't just money—it's <strong>validation from literary experts</strong>. This award has supported 200+ projects over 23 years. It tells publishers that your translation has already been vetted by professionals.</p>
+            </div>
+
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--ocean-deep); margin: 2rem 0 1.5rem;">Your Unique Selling Points</h3>
+
+            <div class="talking-point">
+                <span class="icon">🐕</span>
+                <div>
+                    <h4>Unforgettable Narrator</h4>
+                    <p>Nestor the stray dog offers a fresh, philosophical perspective. Think <em>The Art of Racing in the Rain</em> meets contemporary African literature.</p>
+                </div>
+            </div>
+
+            <div class="talking-point">
+                <span class="icon">🌍</span>
+                <div>
+                    <h4>Underrepresented Literature</h4>
+                    <p>Very few Senegalese novels are available in English. You're helping fill a significant gap in world literature.</p>
+                </div>
+            </div>
+
+            <div class="talking-point">
+                <span class="icon">🎭</span>
+                <div>
+                    <h4>Cultural Authenticity</h4>
+                    <p>Successfully translated Wolof oral traditions into English—judges specifically praised this as "hitting all the right notes."</p>
+                </div>
+            </div>
+
+            <div class="talking-point">
+                <span class="icon">📚</span>
+                <div>
+                    <h4>Complete & Ready</h4>
+                    <p>Your 60,000-word manuscript is done. Publishers love projects that are ready to go.</p>
+                </div>
+            </div>
+
+            <div class="card" style="background: linear-gradient(135deg, var(--sand) 0%, var(--sand-light) 100%); margin-top: 2rem;">
+                <h3><span class="icon">📖</span> Book Details at a Glance</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div><strong>Original Title:</strong> Au-dessus des dunes</div>
+                    <div><strong>Author:</strong> Louis Camara (Senegal)</div>
+                    <div><strong>Translator:</strong> Dominica Chang</div>
+                    <div><strong>Language:</strong> French → English</div>
+                    <div><strong>Word Count:</strong> ~60,000</div>
+                    <div><strong>Genre:</strong> Literary Fiction</div>
+                    <div><strong>Setting:</strong> Saint-Louis, Senegal</div>
+                    <div><strong>Status:</strong> Complete, Rights Available</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Publishers -->
+        <section id="publishers" class="section">
+            <div class="section-header">
+                <h2>Your Target Publishers</h2>
+                <p>20 carefully researched publishers who specialize in translations and African literature.</p>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterPublishers('all')">All Publishers (20)</button>
+                <button class="filter-btn" onclick="filterPublishers('high')">🔥 High Priority (6)</button>
+                <button class="filter-btn" onclick="filterPublishers('medium')">⭐ Medium Priority (11)</button>
+                <button class="filter-btn" onclick="filterPublishers('low')">📋 Worth Trying (3)</button>
+            </div>
+
+            <div class="publisher-grid" id="publisher-grid">
+                <!-- High Priority Publishers -->
+                <div class="publisher-card high" data-priority="high">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">🔥 High Priority</span>
+                        <h4>Archipelago Books</h4>
+                        <div class="type">Nonprofit · Brooklyn, NY</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Perfect</p>
+                        <p>Published <em>Our Lady of the Nile</em> by Scholastique Mukasonga. Proven track record with African literature in translation.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f565159507f5e4d5c57564f5a535e58505d5050544c11504d58">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('info@archipelagobooks.org', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card high" data-priority="high">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">🔥 High Priority</span>
+                        <h4>Deep Vellum Publishing</h4>
+                        <div class="type">Nonprofit · Dallas, TX</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Perfect</p>
+                        <p>Mission-driven, published <em>Tram 83</em> by Congolese author Fiston Mwanza Mujila. Focus on socially engaged literature.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="721f13001917061b1c15321617170204171e1e071f5c1d0015">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('marketing@deepvellum.org', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card high" data-priority="high">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">🔥 High Priority</span>
+                        <h4>Iskanchi Press</h4>
+                        <div class="type">Independent</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Perfect</p>
+                        <p>Specifically champions African perspectives and diaspora voices. Your book is exactly what they're looking for.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="462f282029062f352d2728252e2f6825292b">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('info@iskanchi.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card high" data-priority="high">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">🔥 High Priority</span>
+                        <h4>University of Georgia Press</h4>
+                        <div class="type">University Press</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Perfect</p>
+                        <p>Has dedicated <strong>African Language Literatures in Translation</strong> series. Wolof traditions make this ideal.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a6c4c9c9cdd5e6d3c1c788c3c2d3">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('books@uga.edu', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card high" data-priority="high">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">🔥 High Priority</span>
+                        <h4>Open Letter Books</h4>
+                        <div class="type">University of Rochester</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Perfect</p>
+                        <p>Publishes only translations. Part of Three Percent initiative. <strong>Note: Reading period opens in June.</strong></p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="375458594356544377584752595b52434352455558585c4419584550">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('contact@openletterbooks.org', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card high" data-priority="high">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">🔥 High Priority</span>
+                        <h4>Two Lines Press</h4>
+                        <div class="type">Nonprofit · San Francisco</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Perfect</p>
+                        <p>Champions literary translation and overlooked voices. Strong mission alignment with your project.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cca5a2aaa38cb8bba3a0a5a2a9bfbcbea9bfbfe2afa3a1">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('info@twolinespress.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medium Priority Publishers -->
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>Transit Books</h4>
+                        <div class="type">Nonprofit · Oakland, CA</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>First book was Ugandan epic <em>Kintu</em>. Strong commitment to African literature.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span>Check website for submission form</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>New Vessel Press</h4>
+                        <div class="type">Independent · NYC</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>Exclusively publishes translations. Prefers complete manuscripts—you have this ready!</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="553c3b333a153b302223302626303925273026267b363a38">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('info@newvesselpress.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>Tilted Axis Press</h4>
+                        <div class="type">Independent · UK</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>Focus on Global Majority literature including Black Atlantic. Publishes 6-9 books/year.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="adc4c3cbc2edd9c4c1d9c8c9ccd5c4dedddfc8dede83cec2c0">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('info@tiltedaxispress.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>Guernica Editions</h4>
+                        <div class="type">Independent · Canada</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>Cross-cultural fiction with world series for translations. Year-round submissions accepted.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="167b7f757e77737a7b7f64797a7a775671637364787f757773727f627f7978653875797b">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('michaelmirolla@guernicaeditions.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>Arsenal Pulp Press</h4>
+                        <div class="type">Independent · Canada</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>Strong BIPOC focus. Allows simultaneous submissions—great flexibility.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="285b5d4a45415b5b4147465b68495a5b4d464944585d4458064b4745">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('submissions@arsenalpulp.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>Comma Press</h4>
+                        <div class="type">Nonprofit · UK</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>Publishes translated fiction and anthologies. Query founder Ra Page directly.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="295b480759484e4c694a46444448595b4c5a5a074a46075c42">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('ra.page@commapress.co.uk', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>Restless Books</h4>
+                        <div class="type">Independent · Brooklyn</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>Published first Malagasy novel in English. Founded to combat parochial publishing trends.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8feaebe6fbe0fde6eee3cffdeafcfbe3eafcfcede0e0e4fca1e0fde8">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('editorial@restlessbooks.org', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>Yale: Margellos Series</h4>
+                        <div class="type">University Press</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>Prestigious World Republic of Letters series. PEN/Heim award helps credibility here.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94e3fbe6f8f0e6f1e4e1f6f8fdf7fbf2f8f1e0e0f1e6e7d4edf5f8f1baf1f0e1">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('worldrepublicofletters@yale.edu', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>Feminist Press at CUNY</h4>
+                        <div class="type">Nonprofit</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>International women writers focus. Social critique angle of your book could fit well.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="83eaede5ecc3e5e6eeeaedeaf0f7f3f1e6f0f0adecf1e4">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('info@feministpress.org', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card medium" data-priority="medium">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">⭐ Medium</span>
+                        <h4>Balestier Press</h4>
+                        <div class="type">Independent</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Why They're Good</p>
+                        <p>Promotes cross-cultural diversity. Send synopsis + sample translation.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dbbebfb2afb4a99bb9bab7bea8afb2bea9f5b8b4b6">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('editor@balestier.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Low Priority Publishers -->
+                <div class="publisher-card low" data-priority="low">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">📋 Worth Trying</span>
+                        <h4>New Directions</h4>
+                        <div class="type">Independent</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Notes</p>
+                        <p>Prestigious but no unsolicited manuscripts. Brief query only—worth trying given your award.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7411101d001b061d1518341a10161b1b1f075a171b19">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('editorial@ndbooks.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card low" data-priority="low">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">📋 Worth Trying</span>
+                        <h4>Peirene Press</h4>
+                        <div class="type">Independent · UK</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Notes</p>
+                        <p>European focus but accepts translator pitches. Less ideal fit but worth a query.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="720107101f1b01011b1d1c013202171b00171c1702001701015c111d1f">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('submissions@peirenepress.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publisher-card low" data-priority="low">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">📋 Worth Trying</span>
+                        <h4>Dedalus Books</h4>
+                        <div class="type">Independent</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Notes</p>
+                        <p>European literature focus but accepts queries for literary fiction in translation.</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="adc4c3cbc2edc9c8c9ccc1d8decfc2c2c6de83cec2c0">[email&#160;protected]</a></span>
+                            <button class="copy-btn" onclick="copyEmail('info@dedalusbooks.com', this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Email Templates -->
+        <section id="templates" class="section">
+            <div class="section-header">
+                <h2>Email Templates</h2>
+                <p>Four polished query letters ready to customize. Click to view, then copy and personalize.</p>
+            </div>
+
+            <div class="template-tabs">
+                <button class="template-tab active" onclick="showTemplate('standard')">Standard Query</button>
+                <button class="template-tab" onclick="showTemplate('african')">African Lit Focus</button>
+                <button class="template-tab" onclick="showTemplate('short')">Short & Punchy</button>
+                <button class="template-tab" onclick="showTemplate('translation')">Translation Focus</button>
+            </div>
+
+            <!-- Standard Template -->
+            <div class="email-template active" id="template-standard">
+                <div class="email-header">
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Query: Among the Dunes—PEN/Heim Award-Winning Senegalese Novel in Translation
+                    </div>
+                </div>
+                <div class="email-body">
+                    <p>Dear <span class="placeholder">[Name/Editorial Team]</span>,</p>
+                    <br>
+                    <p>I am writing to inquire whether <span class="placeholder">[Publisher]</span> might be interested in reviewing <em>Among the Dunes</em>, an English translation of <em>Au-dessus des dunes</em> by celebrated Senegalese writer Louis Camara. This translation was recently awarded a <span class="highlight">$4,000 PEN/Heim Translation Fund Grant</span>—one of the most prestigious awards supporting outstanding literary translations.</p>
+                    <br>
+                    <p><em>Among the Dunes</em> is narrated by Nestor, a stray dog in Saint-Louis, who recounts his life and that of his master. Mixing sharp satire, compassion, and traditional Wolof oral idioms, Camara offers a polyphonic critique of human society that is both witty and deeply moving. The PEN/Heim judges praised the translation as "pitch-perfect" and "expertly handled with a keen ear and a deft hand," noting that it "hits all the right notes" in capturing the original's cultural nuance and multi-voiced style.</p>
+                    <br>
+                    <p>This novel has never appeared in English before. The complete 60,000-word manuscript captures Senegal's coastal city of Saint-Louis through an unforgettable narrative voice. I believe it would resonate with readers who appreciate global fiction, voice-driven narratives, and contemporary African literature.</p>
+                    <br>
+                    <p>Because <span class="placeholder">[Publisher]</span> actively publishes <span class="placeholder">[customize: reference their mission—e.g., "international literature in translation," "African and diaspora voices"]</span>, I thought <em>Among the Dunes</em> might be an excellent fit for your list. I would be delighted to share the full manuscript, synopsis, author/translator biographies, and any other materials at your convenience.</p>
+                    <br>
+                    <p><strong>Key Details:</strong></p>
+                    <p>• Author: Louis Camara (Senegal)<br>
+                    • Translator: Dominica Chang<br>
+                    • Language: French → English<br>
+                    • Genre: Literary fiction<br>
+                    • Word count: ~60,000<br>
+                    • Status: Complete translation; rights available</p>
+                    <br>
+                    <p>Thank you for considering <em>Among the Dunes</em>. I look forward to the possibility of working with <span class="placeholder">[Publisher]</span>.</p>
+                    <br>
+                    <p>Warm regards,<br>
+                    Dominica Chang<br>
+                    <span class="placeholder">[Email]</span></p>
+                    <br>
+                    <p><em>Attachments available upon request: synopsis, sample translation, author/translator bios</em></p>
+                </div>
+                <button class="copy-template-btn" onclick="copyTemplate('standard')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                    </svg>
+                    Copy This Template
+                </button>
+            </div>
+
+            <!-- African Lit Focus Template -->
+            <div class="email-template" id="template-african">
+                <div class="email-header">
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Senegalese Novel in Translation: Wolof Oral Traditions Meet Contemporary Satire
+                    </div>
+                </div>
+                <div class="email-body">
+                    <p>Dear <span class="placeholder">[Name/Editorial Team]</span>,</p>
+                    <br>
+                    <p>I am seeking a publisher for <em>Among the Dunes</em> (<em>Au-dessus des dunes</em>), a Senegalese novel that brings vibrant West African literary traditions to English-language readers through the unforgettable voice of Nestor, a street dog in Saint-Louis.</p>
+                    <br>
+                    <p>This translation was recently awarded a <span class="highlight">$4,000 PEN/Heim Translation Fund Grant</span>—a major recognition that has supported over 200 translations since its inception. The judges specifically praised how I captured author Louis Camara's integration of Wolof oral idioms within French prose, calling it "pitch-perfect" and noting that it successfully translates a work "written in French, rooted in Senegalese culture, and layered with traditional Wolof oral idioms."</p>
+                    <br>
+                    <p>Louis Camara joins the tradition of Senegalese literary giants like Ousmane Sembène, Mariama Bâ, and Cheikh Hamidou Kane—but with a contemporary twist: his narrator is a philosophical stray dog who observes human folly with satirical wit and deep compassion. Through Nestor's eyes, readers experience Saint-Louis's coastal culture while engaging with universal themes of inequality, belonging, and what it means to be human.</p>
+                    <br>
+                    <p><strong>What makes this translation important:</strong></p>
+                    <p>• Successfully translates Wolof oral storytelling traditions into English without losing cultural authenticity<br>
+                    • Expands the canon of Senegalese literature available to English readers (very few are translated)<br>
+                    • Addresses contemporary West African social issues through innovative narrative form<br>
+                    • Built-in literary credibility through PEN/Heim recognition</p>
+                    <br>
+                    <p>Given <span class="placeholder">[Publisher's]</span> commitment to <span class="placeholder">[customize: "African perspectives," "diaspora voices," "African language literatures"]</span>, I believe <em>Among the Dunes</em> would be an excellent addition to your catalog. The complete 60,000-word manuscript is ready for your review.</p>
+                    <br>
+                    <p>With appreciation for your important work bringing African literature to global readers,</p>
+                    <br>
+                    <p>Dominica Chang<br>
+                    <span class="placeholder">[Contact Information]</span></p>
+                </div>
+                <button class="copy-template-btn" onclick="copyTemplate('african')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                    </svg>
+                    Copy This Template
+                </button>
+            </div>
+
+            <!-- Short Template -->
+            <div class="email-template" id="template-short">
+                <div class="email-header">
+                    <div class="email-subject">
+                        <strong>Subject:</strong> PEN/Heim Grant Winner: AMONG THE DUNES (Senegalese fiction)
+                    </div>
+                </div>
+                <div class="email-body">
+                    <p>Dear <span class="placeholder">[Name]</span>,</p>
+                    <br>
+                    <p>I am querying my English translation of <em>Among the Dunes</em> (<em>Au-dessus des dunes</em>) by Louis Camara—a 2026 PEN/Heim Translation Fund Grant recipient ($4,000).</p>
+                    <br>
+                    <p>The novel is narrated by Nestor, a stray dog in Saint-Louis, Senegal, who offers satirical yet compassionate observations on human society. Written in French and layered with Wolof oral traditions, the book provides cultural specificity and universal themes. PEN/Heim judges praised it as <span class="highlight">"pitch-perfect"</span> and <span class="highlight">"expertly handled with a keen ear and a deft hand."</span></p>
+                    <br>
+                    <p>At 60,000 words, the complete manuscript would appeal to readers of contemporary African literature and literary fiction with unique narrative voices (fans of Garth Stein, Scholastique Mukasonga, Mohamed Mbougar Sarr).</p>
+                    <br>
+                    <p>May I send you the full manuscript and supporting materials?</p>
+                    <br>
+                    <p>Thank you,<br>
+                    Dominica Chang<br>
+                    <span class="placeholder">[Email] | [Phone]</span></p>
+                </div>
+                <button class="copy-template-btn" onclick="copyTemplate('short')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                    </svg>
+                    Copy This Template
+                </button>
+            </div>
+
+            <!-- Translation Focus Template -->
+            <div class="email-template" id="template-translation">
+                <div class="email-header">
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Translation Proposal: PEN/Heim Award Winner from French (Senegal)
+                    </div>
+                </div>
+                <div class="email-body">
+                    <p>Dear <span class="placeholder">[Name/Editorial Team]</span>,</p>
+                    <br>
+                    <p>I am pleased to submit <em>Among the Dunes</em> for your consideration—a French-to-English translation that was recently awarded a PEN/Heim Translation Fund Grant ($4,000) by a distinguished jury of translators and scholars.</p>
+                    <br>
+                    <p><strong>About the Translation:</strong></p>
+                    <p>Louis Camara's <em>Au-dessus des dunes</em> presents unique challenges: it's polyphonic (incorporating multiple voices and registers), culturally layered (written in French but infused with Wolof oral traditions), and narrated by an unlikely protagonist—a stray dog. The judges recognized these complexities, noting that the translation "expertly handled" the work "with a keen ear and a deft hand" and succeeded in "hitting all the right notes" while remaining "pitch-perfect."</p>
+                    <br>
+                    <p>The translation preserves Camara's satirical edge while maintaining accessibility for English-language readers. The 60,000-word manuscript renders Senegalese oral storytelling traditions—including call-and-response patterns, proverbs, and community voices—in natural English that honors the source culture.</p>
+                    <br>
+                    <p><strong>Literary Significance:</strong></p>
+                    <p>• Expands Senegalese literature in English (currently underrepresented)<br>
+                    • Bridges French colonial language and indigenous Wolof traditions<br>
+                    • Innovative narrator creates fresh perspective on contemporary African urban life<br>
+                    • Award recognition validates translation quality and literary merit</p>
+                    <br>
+                    <p><span class="placeholder">[Publisher's]</span> dedication to <span class="placeholder">[customize: "exclusively publishing translations," "overlooked voices," "literary translation"]</span> makes this an ideal partnership. I would welcome the opportunity to share the complete manuscript, detailed translation notes, and discussion of marketing potential.</p>
+                    <br>
+                    <p>Thank you for your consideration.</p>
+                    <br>
+                    <p>Sincerely,<br>
+                    Dominica Chang, Translator<br>
+                    <span class="placeholder">[Contact Information]</span></p>
+                </div>
+                <button class="copy-template-btn" onclick="copyTemplate('translation')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                    </svg>
+                    Copy This Template
+                </button>
+            </div>
+
+            <div class="card" style="margin-top: 2rem; background: var(--sand-light);">
+                <h3><span class="icon">💡</span> Which Template Should You Use?</h3>
+                <div style="margin-top: 1rem;">
+                    <p><strong>Standard Query →</strong> Most publishers, your default choice</p>
+                    <p><strong>African Lit Focus →</strong> Iskanchi, Archipelago, UGA Press</p>
+                    <p><strong>Short & Punchy →</strong> Follow-ups, brief pitch requests, New Directions</p>
+                    <p><strong>Translation Focus →</strong> Open Letter, Two Lines, New Vessel</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Checklist -->
+        <section id="checklist" class="section">
+            <div class="section-header">
+                <h2>Materials Checklist</h2>
+                <p>Make sure you have everything ready before you start submitting. Check off items as you complete them.</p>
+            </div>
+
+            <div class="card">
+                <div class="progress-container">
+                    <div class="progress-bar" id="checklist-progress" style="width: 0%"></div>
+                </div>
+                <p class="progress-text"><span id="checklist-count">0</span> of 8 items complete</p>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon">📝</span> Essential Documents</h3>
+                <ul class="checklist" id="essential-checklist">
+                    <li class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="checklist-content">
+                            <h4>Complete Manuscript</h4>
+                            <p>60,000 words, clean, formatted, proofread multiple times</p>
+                        </div>
+                    </li>
+                    <li class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="checklist-content">
+                            <h4>One-Page Synopsis</h4>
+                            <p>Clear plot summary without giving away the ending</p>
+                        </div>
+                    </li>
+                    <li class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="checklist-content">
+                            <h4>Author Bio (Louis Camara)</h4>
+                            <p>150-200 words about the author's background and other works</p>
+                        </div>
+                    </li>
+                    <li class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="checklist-content">
+                            <h4>Translator Bio (You!)</h4>
+                            <p>Your credentials, translation experience, relevant background</p>
+                        </div>
+                    </li>
+                    <li class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="checklist-content">
+                            <h4>Sample Chapters</h4>
+                            <p>First 30-50 pages, perfectly formatted for submission</p>
+                        </div>
+                    </li>
+                    <li class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="checklist-content">
+                            <h4>PEN/Heim Documentation</h4>
+                            <p>Award announcement with judges' comments ready to reference</p>
+                        </div>
+                    </li>
+                    <li class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="checklist-content">
+                            <h4>Comparable Titles List</h4>
+                            <p>5-7 recent books that are similar (dog narrators, African lit, translations)</p>
+                        </div>
+                    </li>
+                    <li class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="checklist-content">
+                            <h4>Submission Tracker</h4>
+                            <p>Spreadsheet or system to log all queries and responses</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Timeline -->
+        <section id="timeline" class="section">
+            <div class="section-header">
+                <h2>Your Submission Timeline</h2>
+                <p>A realistic schedule for getting your queries out and following up.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Week 1-2: Preparation</h4>
+                        <p>Gather all materials from checklist. Research your top 6 HIGH priority publishers. Visit each website, note similar titles, find editor names. Customize query templates.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Week 3: First Wave</h4>
+                        <p>Submit to 5 HIGH priority publishers (skip Open Letter—they open in June). Send 1-2 queries per day. Log each submission immediately in your tracker.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Week 4-5: Second Wave</h4>
+                        <p>Submit to MEDIUM priority publishers. Continue research + personalization for each. Aim for 10-12 queries total by end of week 5.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Month 2: Patience Mode</h4>
+                        <p>Check email daily but expect mostly silence. Log any responses. If you get a manuscript request—celebrate and send within 24-48 hours! Continue submitting to remaining publishers.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Month 3: Follow-Ups</h4>
+                        <p>Send polite follow-up emails to publishers who acknowledged your query. Keep follow-ups brief. Continue submitting to any remaining prospects.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Month 4+: Persistence</h4>
+                        <p>Continue systematic follow-ups every 6 weeks. Expand to additional publishers if needed. Remember: most books get rejected 10-30 times before finding a home. Stay patient!</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>June: Open Letter Window</h4>
+                        <p>Open Letter Books' reading period opens! Submit your query to this prestigious University of Rochester press.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Tips -->
+        <section id="tips" class="section">
+            <div class="section-header">
+                <h2>Pro Tips for Success</h2>
+                <p>Essential guidance to maximize your chances of finding the right publisher.</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card do">
+                    <h4>✓ DO These Things</h4>
+                    <ul>
+                        <li>Research each publisher before submitting</li>
+                        <li>Personalize every query letter</li>
+                        <li>Lead with the PEN/Heim award</li>
+                        <li>Follow submission guidelines exactly</li>
+                        <li>Send between Tuesday-Thursday, 9am-2pm</li>
+                        <li>Proofread everything 3+ times</li>
+                        <li>Log every submission immediately</li>
+                        <li>Stay professional and patient</li>
+                    </ul>
+                </div>
+                <div class="tip-card dont">
+                    <h4>✗ DON'T Do These Things</h4>
+                    <ul>
+                        <li>Send generic, one-size-fits-all queries</li>
+                        <li>Include attachments unless requested</li>
+                        <li>Submit to multiple editors at same press</li>
+                        <li>Follow up before 12 weeks have passed</li>
+                        <li>Take rejection personally</li>
+                        <li>Give up after a few rejections</li>
+                        <li>Oversell with hyperbole</li>
+                        <li>Forget to mention the award!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h3><span class="icon">📧</span> Customization Quick Reference</h3>
+                <p style="margin-bottom: 1rem;">Use these specific references when writing to each publisher:</p>
+                
+                <div class="talking-point">
+                    <span class="icon">📚</span>
+                    <div>
+                        <h4>Archipelago Books</h4>
+                        <p>"I was inspired by Archipelago's publication of Scholastique Mukasonga's <em>Our Lady of the Nile</em>, which brought important Rwandan voices to English readers..."</p>
+                    </div>
+                </div>
+                
+                <div class="talking-point">
+                    <span class="icon">📚</span>
+                    <div>
+                        <h4>Deep Vellum</h4>
+                        <p>"Deep Vellum's mission to bring the world into conversation through literature resonates deeply with this project. Like Fiston Mwanza Mujila's <em>Tram 83</em>..."</p>
+                    </div>
+                </div>
+                
+                <div class="talking-point">
+                    <span class="icon">📚</span>
+                    <div>
+                        <h4>Iskanchi Press</h4>
+                        <p>"Iskanchi's commitment to championing African perspectives makes it the ideal home for this Senegalese novel..."</p>
+                    </div>
+                </div>
+                
+                <div class="talking-point">
+                    <span class="icon">📚</span>
+                    <div>
+                        <h4>University of Georgia Press</h4>
+                        <p>"Your African Language Literatures in Translation series is perfectly suited for <em>Among the Dunes</em>. While written in French, the novel is deeply rooted in Wolof oral traditions..."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box" style="margin-top: 2rem;">
+                <blockquote>"You have a PEN/Heim award-winning translation. That puts you in the top tier of submissions. Be confident!"</blockquote>
+                <cite>— Remember this when doubt creeps in</cite>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M20 6L9 17l-5-5"/>
+        </svg>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update nav tabs
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            event.target.closest('.nav-tab')?.classList.add('active') || 
+                document.querySelector(`[onclick="showSection('${sectionId}')"]`).classList.add('active');
+            
+            // Scroll to top of content
+            document.querySelector('.nav-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Publisher filtering
+        function filterPublishers(priority) {
+            const cards = document.querySelectorAll('.publisher-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (priority === 'all' || card.dataset.priority === priority) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Email templates
+        function showTemplate(templateId) {
+            document.querySelectorAll('.email-template').forEach(t => t.classList.remove('active'));
+            document.getElementById('template-' + templateId).classList.add('active');
+            
+            document.querySelectorAll('.template-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Copy email
+        function copyEmail(email, button) {
+            navigator.clipboard.writeText(email).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                showToast('Email copied to clipboard!');
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Copy template
+        function copyTemplate(templateId) {
+            const template = document.getElementById('template-' + templateId);
+            const body = template.querySelector('.email-body');
+            const subject = template.querySelector('.email-subject').textContent.replace('Subject: ', '');
+      
