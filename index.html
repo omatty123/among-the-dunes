@@ -58,38 +58,16 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
             background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 50%, var(--ocean-light) 100%);
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 2rem 2rem 4rem;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath fill='%23E8DCC8' d='M0,160 C240,100 480,180 720,140 C960,100 1200,160 1440,120 L1440,200 L0,200 Z'/%3E%3C/svg%3E") no-repeat bottom;
-            background-size: cover;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 180px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%23F5EDE4' d='M0,140 C360,180 720,100 1080,150 C1260,170 1380,130 1440,140 L1440,180 L0,180 Z'/%3E%3C/svg%3E") no-repeat bottom;
-            background-size: cover;
-        }
 
         .hero-content {
             text-align: center;
@@ -976,15 +954,9 @@
             <h1><em>Among the Dunes</em></h1>
             <p class="hero-subtitle">by Louis Camara · Translated by Dominica Chang</p>
             <p class="hero-description">
-                Your complete, interactive guide to finding the perfect publisher for your award-winning Senegalese novel. 
+                Your complete, interactive guide to finding the perfect publisher for your award-winning Senegalese novel.
                 Everything you need—from research to submission—in one place.
             </p>
-            <a href="#start" class="hero-cta" onclick="showSection('overview')">
-                Begin Your Journey
-                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
         </div>
     </section>
 
