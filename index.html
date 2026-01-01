@@ -1024,9 +1024,9 @@
                 <span class="nav-tab-number">03</span>
                 Email Templates
             </button>
-            <button class="nav-tab" onclick="showSection('checklist')">
+            <button class="nav-tab" onclick="showSection('tracker')">
                 <span class="nav-tab-number">04</span>
-                Checklist
+                Tracker
             </button>
             <button class="nav-tab" onclick="showSection('timeline')">
                 <span class="nav-tab-number">05</span>
@@ -1129,8 +1129,8 @@
             <div class="filter-buttons">
                 <button class="filter-btn active" onclick="filterPublishers('all')">All Publishers (20)</button>
                 <button class="filter-btn" onclick="filterPublishers('high')">🔥 High Priority (6)</button>
-                <button class="filter-btn" onclick="filterPublishers('medium')">⭐ Medium Priority (11)</button>
-                <button class="filter-btn" onclick="filterPublishers('low')">📋 Worth Trying (3)</button>
+                <button class="filter-btn" onclick="filterPublishers('medium')">⭐ Medium Priority (10)</button>
+                <button class="filter-btn" onclick="filterPublishers('low')">📋 Worth Trying (4)</button>
             </div>
 
             <div class="publisher-grid" id="publisher-grid">
@@ -1477,6 +1477,24 @@
                         <a href="https://dedalusbooks.com" target="_blank" class="publisher-website">Visit Website →</a>
                     </div>
                 </div>
+
+                <div class="publisher-card low" data-priority="low">
+                    <div class="publisher-card-header">
+                        <span class="priority-badge">📋 Worth Trying</span>
+                        <h4>Coimpress</h4>
+                        <div class="type">Nonprofit</div>
+                    </div>
+                    <div class="publisher-card-body">
+                        <p class="label">Notes</p>
+                        <p>Transgressive poetry and prose with strong translation emphasis. Very long response time (24 months).</p>
+                        <p class="label" style="margin-top: 1rem;">Contact</p>
+                        <div class="publisher-email">
+                            <span>info@coimpress.com</span>
+                            <button class="copy-btn" onclick="copyEmail('info@coimpress.com', this)">Copy</button>
+                        </div>
+                        <a href="https://coimpress.com" target="_blank" class="publisher-website">Visit Website →</a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1658,112 +1676,23 @@
         </section>
 
         <!-- Section 4: Checklist -->
-        <section id="checklist" class="section">
+        <section id="tracker" class="section">
             <div class="section-header">
-                <h2>Materials Checklist</h2>
-                <p>Make sure you have everything ready before you start submitting. Check off items as you complete them.</p>
+                <h2>Submission Tracker</h2>
+                <p>Track your submissions, responses, and follow-ups in real time.</p>
             </div>
 
-            <div class="card">
-                <div class="progress-container">
-                    <div class="progress-bar" id="checklist-progress" style="width: 0%"></div>
-                </div>
-                <p class="progress-text"><span id="checklist-count">0</span> of 8 items complete</p>
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <iframe
+                    src="https://docs.google.com/spreadsheets/d/1rFr_kkELlyQI4YOKCJ0J1_7xFfzhRHUQT5R7HkqHFWo/edit?usp=sharing&rm=minimal&widget=true&headers=false"
+                    style="width: 100%; height: 600px; border: none;"
+                    title="Publisher Submission Tracker">
+                </iframe>
             </div>
 
-            <div class="card">
-                <h3><span class="icon">📝</span> Essential Documents</h3>
-                <ul class="checklist" id="essential-checklist">
-                    <li class="checklist-item">
-                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div class="checklist-content">
-                            <h4>Complete Manuscript</h4>
-                            <p>60,000 words, clean, formatted, proofread multiple times</p>
-                        </div>
-                    </li>
-                    <li class="checklist-item">
-                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div class="checklist-content">
-                            <h4>One-Page Synopsis</h4>
-                            <p>Clear plot summary without giving away the ending</p>
-                        </div>
-                    </li>
-                    <li class="checklist-item">
-                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div class="checklist-content">
-                            <h4>Author Bio (Louis Camara)</h4>
-                            <p>150-200 words about the author's background and other works</p>
-                        </div>
-                    </li>
-                    <li class="checklist-item">
-                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div class="checklist-content">
-                            <h4>Translator Bio (You!)</h4>
-                            <p>Your credentials, translation experience, relevant background</p>
-                        </div>
-                    </li>
-                    <li class="checklist-item">
-                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div class="checklist-content">
-                            <h4>Sample Chapters</h4>
-                            <p>First 30-50 pages, perfectly formatted for submission</p>
-                        </div>
-                    </li>
-                    <li class="checklist-item">
-                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div class="checklist-content">
-                            <h4>PEN/Heim Documentation</h4>
-                            <p>Award announcement with judges' comments ready to reference</p>
-                        </div>
-                    </li>
-                    <li class="checklist-item">
-                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div class="checklist-content">
-                            <h4>Comparable Titles List</h4>
-                            <p>5-7 recent books that are similar (dog narrators, African lit, translations)</p>
-                        </div>
-                    </li>
-                    <li class="checklist-item">
-                        <div class="checklist-checkbox" onclick="toggleCheckbox(this)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <div class="checklist-content">
-                            <h4>Submission Tracker</h4>
-                            <p>Spreadsheet or system to log all queries and responses</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            <p style="text-align: center; margin-top: 1rem; color: var(--ocean);">
+                <a href="https://docs.google.com/spreadsheets/d/1rFr_kkELlyQI4YOKCJ0J1_7xFfzhRHUQT5R7HkqHFWo/edit?usp=sharing" target="_blank" style="color: var(--ocean); text-decoration: underline;">Open in Google Sheets ↗</a>
+            </p>
         </section>
 
         <!-- Section 5: Timeline -->
