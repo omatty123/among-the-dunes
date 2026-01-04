@@ -422,24 +422,29 @@
             color: white;
             text-decoration: none;
             transition: all 0.2s ease;
-            margin-top: 0.5rem;
-            margin-left: 0.5rem;
         }
 
         .publisher-website:hover {
             background: var(--ocean-deep);
         }
 
+        .publisher-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
         /* Status Dropdown */
         .status-dropdown {
-            padding: 0.4rem 0.6rem;
+            padding: 0.5rem 0.6rem;
             border: 2px solid var(--sand);
             border-radius: 6px;
             font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
             background: white;
-            margin-top: 0.75rem;
         }
         .status-dropdown.not-started { border-color: var(--sand-dark); color: #666; }
         .status-dropdown.contacted { border-color: var(--ocean); color: var(--ocean); background: #e8f4f8; }
@@ -1182,15 +1187,14 @@
                             <span>info@archipelagobooks.org</span>
                             <button class="copy-btn" onclick="copyEmail('info@archipelagobooks.org', this)">Copy</button>
                         </div>
-                        <a href="https://archipelagobooks.org" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Archipelago Books" onchange="updateStatus(this, 'Archipelago Books')">
+                        <div class="publisher-actions"><a href="https://archipelagobooks.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Archipelago Books" onchange="updateStatus(this, 'Archipelago Books')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1208,15 +1212,14 @@
                             <span>marketing@deepvellum.org</span>
                             <button class="copy-btn" onclick="copyEmail('marketing@deepvellum.org', this)">Copy</button>
                         </div>
-                        <a href="https://deepvellum.org" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Deep Vellum Publishing" onchange="updateStatus(this, 'Deep Vellum Publishing')">
+                        <div class="publisher-actions"><a href="https://deepvellum.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Deep Vellum Publishing" onchange="updateStatus(this, 'Deep Vellum Publishing')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1234,15 +1237,14 @@
                             <span>info@iskanchi.com</span>
                             <button class="copy-btn" onclick="copyEmail('info@iskanchi.com', this)">Copy</button>
                         </div>
-                        <a href="https://iskanchi.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Iskanchi Press" onchange="updateStatus(this, 'Iskanchi Press')">
+                        <div class="publisher-actions"><a href="https://iskanchi.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Iskanchi Press" onchange="updateStatus(this, 'Iskanchi Press')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1260,15 +1262,14 @@
                             <span>books@uga.edu</span>
                             <button class="copy-btn" onclick="copyEmail('books@uga.edu', this)">Copy</button>
                         </div>
-                        <a href="https://ugapress.org" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="University of Georgia Press" onchange="updateStatus(this, 'University of Georgia Press')">
+                        <div class="publisher-actions"><a href="https://ugapress.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="University of Georgia Press" onchange="updateStatus(this, 'University of Georgia Press')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1286,15 +1287,14 @@
                             <span>contact@openletterbooks.org</span>
                             <button class="copy-btn" onclick="copyEmail('contact@openletterbooks.org', this)">Copy</button>
                         </div>
-                        <a href="https://openletterbooks.org" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Open Letter Books" onchange="updateStatus(this, 'Open Letter Books')">
+                        <div class="publisher-actions"><a href="https://openletterbooks.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Open Letter Books" onchange="updateStatus(this, 'Open Letter Books')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1312,15 +1312,14 @@
                             <span>info@twolinespress.com</span>
                             <button class="copy-btn" onclick="copyEmail('info@twolinespress.com', this)">Copy</button>
                         </div>
-                        <a href="https://twolinespress.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Two Lines Press" onchange="updateStatus(this, 'Two Lines Press')">
+                        <div class="publisher-actions"><a href="https://twolinespress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Two Lines Press" onchange="updateStatus(this, 'Two Lines Press')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1338,15 +1337,14 @@
                         <div class="publisher-email">
                             <span>Check website for submission form</span>
                         </div>
-                        <a href="https://transitbooks.org" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Transit Books" onchange="updateStatus(this, 'Transit Books')">
+                        <div class="publisher-actions"><a href="https://transitbooks.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Transit Books" onchange="updateStatus(this, 'Transit Books')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1364,15 +1362,14 @@
                             <span>info@newvesselpress.com</span>
                             <button class="copy-btn" onclick="copyEmail('info@newvesselpress.com', this)">Copy</button>
                         </div>
-                        <a href="https://newvesselpress.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="New Vessel Press" onchange="updateStatus(this, 'New Vessel Press')">
+                        <div class="publisher-actions"><a href="https://newvesselpress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="New Vessel Press" onchange="updateStatus(this, 'New Vessel Press')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1390,15 +1387,14 @@
                             <span>info@tiltedaxispress.com</span>
                             <button class="copy-btn" onclick="copyEmail('info@tiltedaxispress.com', this)">Copy</button>
                         </div>
-                        <a href="https://tiltedaxispress.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Tilted Axis Press" onchange="updateStatus(this, 'Tilted Axis Press')">
+                        <div class="publisher-actions"><a href="https://tiltedaxispress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Tilted Axis Press" onchange="updateStatus(this, 'Tilted Axis Press')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1416,15 +1412,14 @@
                             <span>michaelmirolla@guernicaeditions.com</span>
                             <button class="copy-btn" onclick="copyEmail('michaelmirolla@guernicaeditions.com', this)">Copy</button>
                         </div>
-                        <a href="https://guernicaeditions.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Guernica Editions" onchange="updateStatus(this, 'Guernica Editions')">
+                        <div class="publisher-actions"><a href="https://guernicaeditions.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Guernica Editions" onchange="updateStatus(this, 'Guernica Editions')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1442,15 +1437,14 @@
                             <span>submissions@arsenalpulp.com</span>
                             <button class="copy-btn" onclick="copyEmail('submissions@arsenalpulp.com', this)">Copy</button>
                         </div>
-                        <a href="https://arsenalpulp.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Arsenal Pulp Press" onchange="updateStatus(this, 'Arsenal Pulp Press')">
+                        <div class="publisher-actions"><a href="https://arsenalpulp.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Arsenal Pulp Press" onchange="updateStatus(this, 'Arsenal Pulp Press')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1468,15 +1462,14 @@
                             <span>ra.page@commapress.co.uk</span>
                             <button class="copy-btn" onclick="copyEmail('ra.page@commapress.co.uk', this)">Copy</button>
                         </div>
-                        <a href="https://commapress.co.uk" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Comma Press" onchange="updateStatus(this, 'Comma Press')">
+                        <div class="publisher-actions"><a href="https://commapress.co.uk" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Comma Press" onchange="updateStatus(this, 'Comma Press')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1494,15 +1487,14 @@
                             <span>editorial@restlessbooks.org</span>
                             <button class="copy-btn" onclick="copyEmail('editorial@restlessbooks.org', this)">Copy</button>
                         </div>
-                        <a href="https://restlessbooks.org" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Restless Books" onchange="updateStatus(this, 'Restless Books')">
+                        <div class="publisher-actions"><a href="https://restlessbooks.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Restless Books" onchange="updateStatus(this, 'Restless Books')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1520,15 +1512,14 @@
                             <span>worldrepublicofletters@yale.edu</span>
                             <button class="copy-btn" onclick="copyEmail('worldrepublicofletters@yale.edu', this)">Copy</button>
                         </div>
-                        <a href="https://yalebooks.yale.edu/series/margellos-world-republic-of-letters" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Yale: Margellos Series" onchange="updateStatus(this, 'Yale: Margellos Series')">
+                        <div class="publisher-actions"><a href="https://yalebooks.yale.edu/series/margellos-world-republic-of-letters" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Yale: Margellos Series" onchange="updateStatus(this, 'Yale: Margellos Series')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1546,15 +1537,14 @@
                             <span>info@feministpress.org</span>
                             <button class="copy-btn" onclick="copyEmail('info@feministpress.org', this)">Copy</button>
                         </div>
-                        <a href="https://feministpress.org" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Feminist Press at CUNY" onchange="updateStatus(this, 'Feminist Press at CUNY')">
+                        <div class="publisher-actions"><a href="https://feministpress.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Feminist Press at CUNY" onchange="updateStatus(this, 'Feminist Press at CUNY')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1572,15 +1562,14 @@
                             <span>editor@balestier.com</span>
                             <button class="copy-btn" onclick="copyEmail('editor@balestier.com', this)">Copy</button>
                         </div>
-                        <a href="https://balestier.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Balestier Press" onchange="updateStatus(this, 'Balestier Press')">
+                        <div class="publisher-actions"><a href="https://balestier.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Balestier Press" onchange="updateStatus(this, 'Balestier Press')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1599,15 +1588,14 @@
                             <span>editorial@ndbooks.com</span>
                             <button class="copy-btn" onclick="copyEmail('editorial@ndbooks.com', this)">Copy</button>
                         </div>
-                        <a href="https://ndbooks.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="New Directions" onchange="updateStatus(this, 'New Directions')">
+                        <div class="publisher-actions"><a href="https://ndbooks.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="New Directions" onchange="updateStatus(this, 'New Directions')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1625,15 +1613,14 @@
                             <span>submissions@peirenepress.com</span>
                             <button class="copy-btn" onclick="copyEmail('submissions@peirenepress.com', this)">Copy</button>
                         </div>
-                        <a href="https://peirenepress.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Peirene Press" onchange="updateStatus(this, 'Peirene Press')">
+                        <div class="publisher-actions"><a href="https://peirenepress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Peirene Press" onchange="updateStatus(this, 'Peirene Press')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1651,15 +1638,14 @@
                             <span>info@dedalusbooks.com</span>
                             <button class="copy-btn" onclick="copyEmail('info@dedalusbooks.com', this)">Copy</button>
                         </div>
-                        <a href="https://dedalusbooks.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Dedalus Books" onchange="updateStatus(this, 'Dedalus Books')">
+                        <div class="publisher-actions"><a href="https://dedalusbooks.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Dedalus Books" onchange="updateStatus(this, 'Dedalus Books')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
 
@@ -1677,15 +1663,14 @@
                             <span>info@coimpress.com</span>
                             <button class="copy-btn" onclick="copyEmail('info@coimpress.com', this)">Copy</button>
                         </div>
-                        <a href="https://coimpress.com" target="_blank" class="publisher-website">Visit Website →</a>
-                        <select class="status-dropdown not-started" data-publisher="Coimpress" onchange="updateStatus(this, 'Coimpress')">
+                        <div class="publisher-actions"><a href="https://coimpress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Coimpress" onchange="updateStatus(this, 'Coimpress')">
                             <option value="not-started">Not Started</option>
                             <option value="contacted">Contacted</option>
                             <option value="waiting">Waiting</option>
                             <option value="responded">Responded</option>
                             <option value="accepted">Accepted!</option>
                             <option value="rejected">Rejected</option>
-                        </select>
+                        </select></div>
                     </div>
                 </div>
             </div>
