@@ -2439,7 +2439,7 @@
         }
 
         // Status dropdown - syncs with Google Sheet
-        const SHEET_API = 'https://script.google.com/macros/s/AKfycbzCXRjufGjidMVEq-CdA37PQmQp7w_RCUzIZoXG_w49qpSyAuL2XKsOb0EeTI0FTZ1TaA/exec';
+        const SHEET_API = 'https://script.google.com/macros/library/d/1FCGQh04G8i2ndMp_owjNieQHVoQPK5UwApYSHebsUGdZ1hmu4BS7bBKi/2';
 
         function updateStatus(select, publisher) {
             const status = select.value;
@@ -2448,13 +2448,9 @@
             // Save to localStorage as backup
             localStorage.setItem('status_' + publisher, status);
 
-            // Sync to Google Sheet
-            fetch(SHEET_API, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ publisher: publisher, status: status })
-            });
+            // Sync to Google Sheet using URL params (avoids CORS issues)
+            const url = SHEET_API + '?action=update&publisher=' + encodeURIComponent(publisher) + '&status=' + encodeURIComponent(status);
+            fetch(url, { mode: 'no-cors' });
         }
 
         function loadStatuses() {
