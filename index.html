@@ -2489,14 +2489,28 @@
                 .then(statuses => {
                     document.querySelectorAll('.status-dropdown').forEach(select => {
                         const publisher = select.dataset.publisher;
-                        if (statuses[publisher]) {
-                            select.value = statuses[publisher];
-                            select.className = 'status-dropdown ' + statuses[publisher].replace(' ', '-').toLowerCase();
-                            localStorage.setItem('status_' + publisher, statuses[publisher]);
+                        const status = statuses[publisher];
+                        const validStatuses = ['not-started', 'contacted', 'waiting', 'responded', 'accepted', 'rejected'];
+                        if (status && validStatuses.includes(status)) {
+                            select.value = status;
+                            select.className = 'status-dropdown ' + status;
+                            localStorage.setItem('status_' + publisher, status);
+                        } else {
+                            select.value = 'not-started';
+                            select.className = 'status-dropdown not-started';
                         }
                     });
                 })
-                .catch(e => console.log('Using cached statuses'));
+                .catch(e => {
+                    console.log('Using cached statuses');
+                    // Ensure defaults on error
+                    document.querySelectorAll('.status-dropdown').forEach(select => {
+                        if (!select.value) {
+                            select.value = 'not-started';
+                            select.className = 'status-dropdown not-started';
+                        }
+                    });
+                });
         }
 
         document.addEventListener('DOMContentLoaded', loadStatuses);
