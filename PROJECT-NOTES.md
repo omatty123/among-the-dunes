@@ -1,7 +1,16 @@
 # Dominica's Publishing Project: Among the Dunes
 
-## IMPORTANT: Project Rules
-**ACCURACY IS OF UTMOST IMPORTANCE.** This is a professional publishing project. Never fabricate or assume information - always verify by checking the source files first. If you don't know something, say so and look it up.
+## CRITICAL RULE FOR CLAUDE
+
+**ACCURACY, ACCURACY, ACCURACY. DON'T MAKE SHIT UP.**
+
+Before stating ANY fact about this project:
+1. CHECK THE SOURCE FILES FIRST
+2. If you don't know, SAY "I don't know" and LOOK IT UP
+3. NEVER fabricate names, dates, details, or any information
+4. This is a PROFESSIONAL publishing project - errors have real consequences
+
+**If unsure → Read the files. Always.**
 
 ---
 
