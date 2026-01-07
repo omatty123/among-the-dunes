@@ -1,5 +1,10 @@
 # Dominica's Publishing Project: Among the Dunes
 
+## IMPORTANT: Project Rules
+**ACCURACY IS OF UTMOST IMPORTANCE.** This is a professional publishing project. Never fabricate or assume information - always verify by checking the source files first. If you don't know something, say so and look it up.
+
+---
+
 ## Book Details
 - **French Title:** Au Milieu des dunes
 - **English Title:** Among the Dunes
