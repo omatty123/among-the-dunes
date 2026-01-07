@@ -3,9 +3,10 @@
 ## Book Details
 - **French Title:** Au Milieu des dunes
 - **English Title:** Among the Dunes
-- **Author:** Abdelkader Djemaï
-- **Translator:** Dominica Radulescu
+- **Author:** Louis Camara (Senegal)
+- **Translator:** Dominica Chang
 - **Word Count:** ~70,000 words (translated)
+- **Award:** $4,000 PEN/Heim Translation Fund Grant
 
 ---
 
