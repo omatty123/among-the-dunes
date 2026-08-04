@@ -29,12 +29,19 @@ Before stating ANY fact about this project:
 
 The website serves as a publisher submission guide and tracking tool.
 
-### Features:
-- Publisher list organized by priority (HIGH, MEDIUM, LOW)
-- Status dropdown for each publisher (synced with Google Sheet)
-- Notes section with auto-save to localStorage
-- Direct links to publisher submission pages
-- Sample chapters, synopsis, and translator bio sections
+### Features (rebuilt 2026-08-04):
+- **Publishers** — flat table of all 20 on one screen, the landing view. Per row: priority,
+  publisher (links to their site), why them, contact email + copy button, status dropdown.
+  Submission caveats (Open Letter's June window, "simultaneous submissions OK", "query Ra Page
+  directly") live in the row they apply to. Filter by priority; live status counts above the table.
+- **Query Letters** — the 4 templates, unchanged, with copy-to-clipboard
+- **Tracker** — the Google Sheet embedded
+- **Notes** — personal notes (localStorage) + a suggestion form to omatty@gmail.com
+- Masthead links: translation workbench, .xlsx publisher database, .docx query templates
+
+Cut in the rebuild: Overview/"Secret Weapons", Pro Tips, Strategy (it restated every publisher
+blurb a second time), Timeline, and the Downloads section. The two downloadable files had existed
+ONLY as base64 strings inside index.html; they are now real files in the repo.
 
 ---
 

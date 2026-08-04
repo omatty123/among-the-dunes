@@ -1,1744 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Among the Dunes — Publisher Submission Guide</title>
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Dunes">
-
-    <!-- Open Graph / Social Share -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Among the Dunes — Publisher Submission Guide">
-    <meta property="og:description" content="Award-winning Senegalese novel by Louis Camara, translated by Dominica Chang. PEN/Heim Translation Fund Grant recipient.">
-    <meta property="og:image" content="https://omatty123.github.io/among-the-dunes/book-cover.jpg">
-    <meta property="og:url" content="https://omatty123.github.io/among-the-dunes/">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Among the Dunes — Publisher Submission Guide">
-    <meta name="twitter:description" content="Award-winning Senegalese novel by Louis Camara, translated by Dominica Chang.">
-    <meta name="twitter:image" content="https://omatty123.github.io/among-the-dunes/book-cover.jpg">
-
-    <link rel="icon" type="image/jpeg" href="book-cover.jpg">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --sand-light: #F5EDE4;
-            --sand: #E8DCC8;
-            --sand-dark: #D4C4A8;
-            --ocean: #2C5F7C;
-            --ocean-deep: #1A3D50;
-            --ocean-light: #5A9AB8;
-            --dune-gold: #C4A35A;
-            --dune-amber: #B8860B;
-            --text-dark: #2A2A2A;
-            --text-light: #F5EDE4;
-            --success: #4A7C59;
-            --warning: #B8860B;
-            --accent: #C4785A;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--sand-light);
-            color: var(--text-dark);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 50%, var(--ocean-light) 100%);
-            position: relative;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            padding: 1.5rem 2rem;
-            overflow: hidden;
-        }
-
-
-        .hero-content {
-            text-align: left;
-            z-index: 10;
-            max-width: 600px;
-        }
-
-        .book-cover {
-            width: 100px;
-            height: auto;
-            border-radius: 6px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            flex-shrink: 0;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .award-badge {
-            display: inline-block;
-            background: var(--dune-gold);
-            color: var(--ocean-deep);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 500;
-            color: var(--text-light);
-            margin-bottom: 0.2rem;
-            line-height: 1.1;
-        }
-
-        .hero h1 em {
-            font-style: italic;
-            color: var(--sand);
-        }
-
-        .hero-french-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            color: var(--sand-light);
-            margin-bottom: 0.3rem;
-            opacity: 0.85;
-        }
-
-        .hero-subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            color: var(--sand);
-            margin-bottom: 0;
-            font-style: italic;
-        }
-
-        .hero-description {
-            display: none;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--sand-light);
-            color: var(--ocean-deep);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.6s backwards;
-        }
-
-        .hero-cta:hover {
-            background: var(--dune-gold);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .hero-cta svg {
-            transition: transform 0.3s ease;
-        }
-
-        .hero-cta:hover svg {
-            transform: translateX(5px);
-        }
-
-        /* Navigation Tabs - Vertical Left Sidebar */
-        .nav-container {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 160px;
-            height: 100vh;
-            background: var(--sand);
-            z-index: 100;
-            box-shadow: 2px 0 20px rgba(0,0,0,0.1);
-            overflow-y: auto;
-        }
-
-        .nav-tabs {
-            display: flex;
-            flex-direction: column;
-            padding: 0.5rem 0;
-        }
-
-        .nav-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .nav-tab {
-            width: 100%;
-            padding: 0.6rem 0.75rem;
-            background: transparent;
-            border: none;
-            border-left: 3px solid transparent;
-            cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--ocean);
-            position: relative;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 0.5rem;
-            text-align: left;
-        }
-
-        .nav-tab:hover {
-            background: rgba(44, 95, 124, 0.05);
-        }
-
-        .nav-tab.active {
-            color: var(--ocean-deep);
-            background: var(--sand-light);
-            border-left-color: var(--dune-gold);
-        }
-
-        .nav-tab::after {
-            display: none;
-        }
-
-        .nav-tab-number {
-            font-size: 0.7rem;
-            opacity: 0.6;
-            min-width: 18px;
-        }
-
-        /* Main Content */
-        .main-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            margin-left: 180px;
-            padding: 2rem 2rem 5rem;
-        }
-
-        .hero {
-            margin-left: 160px;
-        }
-
-        .section {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--ocean-deep);
-            margin-bottom: 0.25rem;
-        }
-
-        .section-header p {
-            color: var(--ocean);
-            font-size: 0.9rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Cards */
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-
-        .card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--ocean-deep);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .card h3 .icon {
-            width: 40px;
-            height: 40px;
-            background: var(--sand);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-        }
-
-        /* Publisher Cards */
-        .publisher-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .publisher-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .publisher-card:hover {
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-            transform: translateY(-4px);
-        }
-
-        .publisher-card-header {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, var(--ocean) 0%, var(--ocean-deep) 100%);
-            color: white;
-            position: relative;
-        }
-
-        .publisher-card.medium .publisher-card-header {
-            background: linear-gradient(135deg, var(--dune-gold) 0%, var(--dune-amber) 100%);
-        }
-
-        .publisher-card.low .publisher-card-header {
-            background: linear-gradient(135deg, var(--accent) 0%, #A66B50 100%);
-        }
-
-        .priority-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(255,255,255,0.2);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .publisher-card h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .publisher-card .type {
-            font-size: 0.85rem;
-            opacity: 0.85;
-        }
-
-        .publisher-card-body {
-            padding: 1.5rem;
-        }
-
-        .publisher-card-body p {
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .publisher-card-body .label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--ocean);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .publisher-email {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--sand-light);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            color: var(--ocean-deep);
-            text-decoration: none;
-            transition: all 0.2s ease;
-            margin-top: 0.5rem;
-        }
-
-        .publisher-email:hover {
-            background: var(--sand);
-        }
-
-        .publisher-website {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--ocean);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            color: white;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .publisher-website:hover {
-            background: var(--ocean-deep);
-        }
-
-        .publisher-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* Status Dropdown */
-        .status-dropdown {
-            padding: 0.5rem 0.6rem;
-            border: 2px solid var(--sand);
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            background: white;
-        }
-        .status-dropdown.not-started { border-color: var(--sand-dark); color: #666; }
-        .status-dropdown.preparing { border-color: #3498db; color: #3498db; background: #e8f4fc; }
-        .status-dropdown.contacted { border-color: var(--ocean); color: var(--ocean); background: #e8f4f8; }
-        .status-dropdown.submitted { border-color: #27ae60; color: #27ae60; background: #e8f8f0; }
-        .status-dropdown.waiting { border-color: var(--warning); color: var(--warning); background: #fff8e6; }
-        .status-dropdown.responded { border-color: #9b59b6; color: #9b59b6; background: #f5e6ff; }
-        .status-dropdown.accepted { border-color: var(--success); color: var(--success); background: #e6f5eb; }
-        .status-dropdown.rejected { border-color: #c0392b; color: #c0392b; background: #fde8e6; }
-
-        /* Notes Form */
-        .notes-form {
-            max-width: 500px;
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--ocean-deep);
-        }
-
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid var(--sand);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
-
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--ocean);
-        }
-
-        .submit-btn {
-            background: var(--ocean);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .submit-btn:hover {
-            background: var(--ocean-deep);
-        }
-
-        .personal-notes {
-            width: 100%;
-            min-height: 300px;
-            padding: 1rem;
-            border: 2px solid var(--sand);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            line-height: 1.6;
-            resize: vertical;
-        }
-
-        .personal-notes:focus {
-            outline: none;
-            border-color: var(--ocean);
-        }
-
-        .copy-btn {
-            background: var(--ocean);
-            color: white;
-            border: none;
-            padding: 0.35rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .copy-btn:hover {
-            background: var(--ocean-deep);
-        }
-
-        .copy-btn.copied {
-            background: var(--success);
-        }
-
-        /* Email Templates */
-        .template-tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .template-tab {
-            padding: 0.75rem 1.5rem;
-            background: var(--sand);
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--ocean);
-            transition: all 0.2s ease;
-        }
-
-        .template-tab:hover {
-            background: var(--sand-dark);
-        }
-
-        .template-tab.active {
-            background: var(--ocean);
-            color: white;
-        }
-
-        .email-template {
-            display: none;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .email-template.active {
-            display: block;
-        }
-
-        .email-header {
-            background: var(--sand);
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--sand-dark);
-        }
-
-        .email-subject {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.95rem;
-        }
-
-        .email-subject strong {
-            color: var(--ocean);
-        }
-
-        .email-body {
-            padding: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.8;
-            max-height: 500px;
-            overflow-y: auto;
-        }
-
-        .email-body .placeholder {
-            background: var(--sand);
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            font-style: italic;
-            color: var(--ocean);
-        }
-
-        .email-body .highlight {
-            background: linear-gradient(180deg, transparent 60%, var(--dune-gold) 60%);
-            font-weight: 500;
-        }
-
-        .copy-template-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            width: 100%;
-            padding: 1rem;
-            background: var(--ocean);
-            color: white;
-            border: none;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .copy-template-btn:hover {
-            background: var(--ocean-deep);
-        }
-
-        /* Checklist */
-        .checklist {
-            list-style: none;
-        }
-
-        .checklist-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--sand);
-        }
-
-        .checklist-item:last-child {
-            border-bottom: none;
-        }
-
-        .checklist-checkbox {
-            width: 24px;
-            height: 24px;
-            border: 2px solid var(--ocean);
-            border-radius: 6px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.2s ease;
-            margin-top: 0.1rem;
-        }
-
-        .checklist-checkbox:hover {
-            background: var(--sand);
-        }
-
-        .checklist-checkbox.checked {
-            background: var(--ocean);
-            border-color: var(--ocean);
-        }
-
-        .checklist-checkbox.checked svg {
-            display: block;
-        }
-
-        .checklist-checkbox svg {
-            display: none;
-            width: 14px;
-            height: 14px;
-            stroke: white;
-            stroke-width: 3;
-        }
-
-        .checklist-content h4 {
-            font-size: 1rem;
-            color: var(--text-dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .checklist-content p {
-            font-size: 0.9rem;
-            color: var(--ocean);
-        }
-
-        .checklist-item.completed .checklist-content h4 {
-            text-decoration: line-through;
-            opacity: 0.6;
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            background: var(--sand);
-            border-radius: 50px;
-            height: 12px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--ocean) 0%, var(--ocean-light) 100%);
-            border-radius: 50px;
-            transition: width 0.5s ease;
-        }
-
-        .progress-text {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--ocean);
-            font-weight: 500;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--sand-dark);
-            border-radius: 3px;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 2rem;
-        }
-
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-
-        .timeline-marker {
-            position: absolute;
-            left: -2rem;
-            width: 20px;
-            height: 20px;
-            background: var(--ocean);
-            border-radius: 50%;
-            transform: translateX(-8.5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .timeline-marker::after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 1.25rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .timeline-content h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: var(--ocean-deep);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content p {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-        }
-
-        /* Talking Points */
-        .talking-point {
-            display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            background: var(--sand-light);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--dune-gold);
-        }
-
-        .talking-point .icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .talking-point h4 {
-            font-size: 1rem;
-            color: var(--ocean-deep);
-            margin-bottom: 0.25rem;
-        }
-
-        .talking-point p {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-        }
-
-        /* Quote Box */
-        .quote-box {
-            background: linear-gradient(135deg, var(--ocean) 0%, var(--ocean-deep) 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .quote-box blockquote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .quote-box cite {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Tips Grid */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .tip-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .tip-card.do {
-            border-top: 4px solid var(--success);
-        }
-
-        .tip-card.dont {
-            border-top: 4px solid var(--accent);
-        }
-
-        .tip-card h4 {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .tip-card.do h4 {
-            color: var(--success);
-        }
-
-        .tip-card.dont h4 {
-            color: var(--accent);
-        }
-
-        .tip-card ul {
-            list-style: none;
-        }
-
-        .tip-card li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            font-size: 0.9rem;
-        }
-
-        .tip-card.do li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        .tip-card.dont li::before {
-            content: '✗';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Filter Buttons */
-        .filter-buttons {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            background: var(--sand);
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--ocean);
-            transition: all 0.2s ease;
-        }
-
-        .filter-btn:hover {
-            background: var(--sand-dark);
-        }
-
-        .filter-btn.active {
-            background: var(--ocean);
-            color: white;
-        }
-
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--ocean-deep);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            z-index: 1000;
-            opacity: 0;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-tab {
-                min-width: 120px;
-                padding: 1rem 0.75rem;
-                font-size: 0.8rem;
-            }
-
-            .publisher-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .main-content {
-                padding: 2rem 1rem;
-            }
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--sand);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--ocean-light);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--ocean);
-        }
-    
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: linear-gradient(135deg, var(--ocean) 0%, var(--ocean-deep) 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(44, 95, 124, 0.3);
-        }
-
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(44, 95, 124, 0.4);
-        }
-
-        .download-btn:active {
-            transform: translateY(-1px);
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Among the Dunes — Publisher Submissions</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23FAF9F7'/%3E%3Ccircle cx='46' cy='17' r='7' fill='%23C9922A'/%3E%3Cpath d='M0 40c9-9 17-4 26-10 9-6 22-3 38 7v27H0z' fill='%23E0C89A'/%3E%3Cpath d='M0 52c11-8 21-5 32-9 11-4 21-2 32 4v17H0z' fill='%23146260'/%3E%3Cg fill='%231A1A1A'%3E%3Ccircle cx='23' cy='32' r='4.6'/%3E%3Cpath d='M19.4 29.2 17.9 23.6l4.4 3.3z'/%3E%3Cpath d='M23.6 36.2c-3.4 1.6-4.8 5.6-5 10.8h11.2c-.4-5.6-1.6-8.8-3.4-10.8z'/%3E%3Cpath d='M29.6 46.4c4.4-.6 6.4-3.6 5.2-8.4l-2.2.7c.8 3.4-.4 5.2-3.4 5.5z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Dunes">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Among the Dunes — Publisher Submissions">
+<meta property="og:description" content="Submission tracker for the English translation of Louis Camara's Au Milieu des dunes by Dominica Chang, a PEN/Heim Translation Fund Grant recipient. 20 publishers, contacts, and query letters.">
+<meta property="og:image" content="https://omatty123.github.io/among-the-dunes/book-cover.jpg">
+<meta property="og:url" content="https://omatty123.github.io/among-the-dunes/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Among the Dunes — Publisher Submissions">
+<meta name="twitter:description" content="Submission tracker for Dominica Chang's PEN/Heim award-winning translation of Louis Camara's Au Milieu des dunes.">
+<meta name="twitter:image" content="https://omatty123.github.io/among-the-dunes/book-cover.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF9F7;
+    --paper-alt: #F3F1ED;
+    --card: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-soft: #56514A;
+    --ink-faint: #857F76;
+    --rule: #E2DFD9;
+    --rule-strong: #CFCAC1;
+    --accent: #146260;
+    --accent-deep: #0D4644;
+    --high: #146260;
+    --medium: #B07D2B;
+    --low: #9A958C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.1rem 1.75rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    background: var(--card);
+  }
+  .masthead img {
+    width: 54px;
+    height: auto;
+    border: 1px solid var(--rule);
+    flex-shrink: 0;
+  }
+  .mast-text { flex: 1; min-width: 0; }
+  .mast-text h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .mast-text h1 em { font-style: italic; }
+  .mast-sub {
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+    margin-top: 0.2rem;
+  }
+  .mast-sub .fr { font-style: italic; }
+  .mast-sub .sep { color: var(--rule-strong); margin: 0 0.45rem; }
+  .mast-meta {
+    text-align: right;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    flex-shrink: 0;
+  }
+  .award {
+    display: inline-block;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    white-space: nowrap;
+  }
+  .mast-files { margin-top: 0.45rem; line-height: 1.75; }
+  .mast-files a { text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
+  .mast-files a:hover { border-bottom-color: var(--accent); }
+  .mast-files a.workbench { font-weight: 600; border-bottom-color: var(--accent); }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    gap: 0;
+    padding: 0 1.75rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-tab {
+    appearance: none;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    padding: 0.7rem 0.95rem;
+    cursor: pointer;
+  }
+  .nav-tab:hover { color: var(--ink); }
+  .nav-tab.active { color: var(--accent-deep); border-bottom-color: var(--accent); font-weight: 600; }
+
+  main { padding: 1.25rem 1.75rem 4rem; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ---------- publisher controls ---------- */
+  .controls {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.7rem;
+  }
+  .filters { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .filter-btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.8rem;
+    background: none;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    padding: 0.24rem 0.6rem;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .filter-btn:hover { border-color: var(--ink-faint); color: var(--ink); }
+  .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .summary { font-size: 0.8rem; color: var(--ink-faint); }
+  .summary b { color: var(--ink-soft); font-weight: 600; }
+
+  /* ---------- publisher table ---------- */
+  table.pubs {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--rule);
+  }
+  table.pubs thead th {
+    text-align: left;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--rule-strong);
+    background: var(--paper-alt);
+    white-space: nowrap;
+  }
+  table.pubs td {
+    padding: 0.7rem 0.75rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    font-size: 0.875rem;
+  }
+  table.pubs tbody tr:last-child td { border-bottom: none; }
+  table.pubs tbody tr:hover { background: #FCFBF9; }
+
+  .col-pri { width: 74px; white-space: nowrap; }
+  .dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+    vertical-align: 1px;
+  }
+  .dot.high { background: var(--high); }
+  .dot.medium { background: var(--medium); }
+  .dot.low { background: var(--low); }
+  .pri-label { font-size: 0.76rem; color: var(--ink-soft); }
+
+  .col-name { width: 172px; }
+  .pub-link {
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-strong);
+    color: var(--ink);
+  }
+  .pub-link:hover { color: var(--accent-deep); border-bottom-color: var(--accent); }
+  .pub-link .ext { font-size: 0.7em; color: var(--ink-faint); margin-left: 0.15rem; }
+  .pub-type { display: block; font-size: 0.74rem; color: var(--ink-faint); margin-top: 0.1rem; }
+
+  .col-why p { color: var(--ink-soft); }
+  .row-note { margin-top: 0.35rem; color: var(--ink) !important; }
+  .note-label {
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--medium);
+    margin-right: 0.3rem;
+  }
+  /* her own Notes column from the Sheet - visually distinct from the static blurb */
+  .row-hernote {
+    margin-top: 0.35rem;
+    padding: 0.25rem 0.5rem;
+    background: #F4F7F6;
+    border-left: 2px solid var(--accent);
+    color: var(--ink) !important;
+    font-size: 0.84rem;
+  }
+  .hernote-label {
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-right: 0.3rem;
+  }
+  .row-hernote a { word-break: break-all; }
+  .date-sent {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    margin-top: 0.3rem;
+  }
+  .row-pitch {
+    margin-top: 0.35rem;
+    padding-left: 0.6rem;
+    border-left: 2px solid var(--rule-strong);
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--ink-faint) !important;
+  }
+
+  .col-contact { width: 240px; }
+  /* stacked so the copy button lands in the same place on every row */
+  .contact { display: flex; flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .contact a { font-size: 0.8rem; text-decoration: none; border-bottom: 1px solid var(--rule-strong); word-break: break-all; }
+  .contact a:hover { border-bottom-color: var(--accent); }
+  .no-email { font-size: 0.8rem; color: var(--ink-faint); font-style: italic; }
+  .copy-btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    padding: 0.1rem 0.35rem;
+    color: var(--ink-faint);
+    cursor: pointer;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .copy-btn.copied { border-color: var(--accent); background: var(--accent); color: #fff; }
+
+  .col-status { width: 148px; }
+  .status-dropdown {
+    appearance: none;
+    font: inherit;
+    font-size: 0.8rem;
+    width: 100%;
+    padding: 0.3rem 1.3rem 0.3rem 0.5rem;
+    border: 1px solid var(--rule-strong);
+    border-left-width: 3px;
+    border-radius: 3px;
+    background: #fff
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4.5 6 8.5 10 4.5' fill='none' stroke='%23857F76' stroke-width='1.4'/%3E%3C/svg%3E")
+      no-repeat right 0.4rem center / 10px;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .status-dropdown.not-started { border-left-color: var(--rule-strong); color: var(--ink-faint); }
+  .status-dropdown.preparing  { border-left-color: #7A8B99; }
+  .status-dropdown.contacted  { border-left-color: #2F7D7B; }
+  .status-dropdown.submitted  { border-left-color: #2C5F8C; }
+  .status-dropdown.waiting    { border-left-color: #B07D2B; }
+  .status-dropdown.responded  { border-left-color: #6B5B95; }
+  .status-dropdown.accepted   { border-left-color: #3F7A4E; background-color: #F2F7F3; }
+  .status-dropdown.rejected   { border-left-color: #A35A50; color: var(--ink-faint); }
+
+  .sync-note { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.6rem; }
+
+  /* ---------- templates ---------- */
+  .tpl-tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+  .tpl-tab {
+    appearance: none;
+    font: inherit;
+    font-size: 0.82rem;
+    background: none;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    padding: 0.28rem 0.65rem;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .tpl-tab:hover { border-color: var(--ink-faint); color: var(--ink); }
+  .tpl-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .email-template { display: none; background: var(--card); border: 1px solid var(--rule); max-width: 46rem; }
+  .email-template.active { display: block; }
+  .email-header { padding: 0.7rem 1.1rem; border-bottom: 1px solid var(--rule); background: var(--paper-alt); }
+  .email-subject { font-size: 0.85rem; color: var(--ink-soft); }
+  .email-body { padding: 1.1rem; font-size: 0.9rem; }
+  .email-body p { line-height: 1.6; }
+  .placeholder { background: #FBF3DF; border-bottom: 1px dashed var(--medium); padding: 0 0.15rem; }
+  .highlight { background: #EAF2F1; padding: 0 0.15rem; }
+  .copy-tpl-btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin: 0 1.1rem 1.1rem;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    color: #fff;
+    padding: 0.35rem 0.8rem;
+    cursor: pointer;
+  }
+  .copy-tpl-btn:hover { background: var(--accent-deep); }
+  .tpl-guide {
+    max-width: 46rem;
+    margin-top: 1rem;
+    padding: 0.8rem 1.1rem;
+    border: 1px solid var(--rule);
+    background: var(--paper-alt);
+    font-size: 0.85rem;
+  }
+  .tpl-guide h3 {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.4rem;
+  }
+  .tpl-guide p { color: var(--ink-soft); }
+  .tpl-guide b { color: var(--ink); }
+
+  /* ---------- tracker + notes ---------- */
+  .sheet-frame { border: 1px solid var(--rule); background: var(--card); }
+  .sheet-frame iframe { display: block; width: 100%; height: 620px; border: none; }
+  .panel {
+    max-width: 46rem;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 1.1rem;
+  }
+  .panel + .panel { margin-top: 1rem; }
+  .panel h3 {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.55rem;
+  }
+  textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    background: var(--paper);
+    color: var(--ink);
+    resize: vertical;
+  }
+  textarea:focus, select:focus, .status-dropdown:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  #personal-notes { min-height: 15rem; }
+  .autosave { font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.4rem; }
+  .form-row { margin-bottom: 0.7rem; }
+  .form-row label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 0.2rem;
+  }
+  .form-row select {
+    font: inherit;
+    font-size: 0.875rem;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .submit-btn {
+    appearance: none;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    color: #fff;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+  }
+  .submit-btn:hover { background: var(--accent-deep); }
+
+  /* ---------- toast ---------- */
+  .toast {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(1.5rem);
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.22s ease, opacity 0.22s ease, visibility 0.22s;
+    z-index: 100;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px) {
+    .masthead { flex-wrap: wrap; padding: 1rem 1.1rem; }
+    .mast-meta { text-align: left; width: 100%; }
+    nav { padding: 0 1.1rem; overflow-x: auto; }
+    main { padding: 1.1rem 1.1rem 3rem; }
+    table.pubs, table.pubs thead, table.pubs tbody, table.pubs tr, table.pubs td { display: block; width: auto; }
+    table.pubs thead { display: none; }
+    table.pubs { border: none; background: none; }
+    table.pubs tr.pub-row {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      margin-bottom: 0.6rem;
+      padding: 0.75rem;
+      position: relative;
+    }
+    table.pubs td { border: none; padding: 0.15rem 0; }
+    .col-pri { position: absolute; top: 0.75rem; right: 0.75rem; width: auto; }
+    .col-name, .col-contact, .col-status { width: auto; }
+    .col-status { margin-top: 0.5rem; max-width: 15rem; }
+  }
+</style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="book-cover.jpg" alt="Among the Dunes book cover" class="book-cover">
-        <div class="hero-content">
-            <div class="award-badge">🏆 PEN/Heim Translation Fund Grant Winner</div>
-            <h1><em>Among the Dunes</em></h1>
-            <p class="hero-french-title">(<em>Au Milieu des dunes</em>)</p>
-            <p class="hero-subtitle">by Louis Camara · Translated by Dominica Chang</p>
-        </div>
-    </section>
 
-    <!-- Navigation -->
-    <nav class="nav-container" id="start">
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showSection('overview')">
-                <span class="nav-tab-number">01</span>
-                Overview
-            </button>
-            <button class="nav-tab" onclick="showSection('publishers')">
-                <span class="nav-tab-number">02</span>
-                Publishers
-            </button>
-            <button class="nav-tab" onclick="showSection('templates')">
-                <span class="nav-tab-number">03</span>
-                Email Templates
-            </button>
-            <button class="nav-tab" onclick="showSection('tracker')">
-                <span class="nav-tab-number">04</span>
-                Tracker
-            </button>
-            <button class="nav-tab" onclick="showSection('timeline')">
-                <span class="nav-tab-number">05</span>
-                Timeline
-            </button>
-            <button class="nav-tab" onclick="showSection('tips')">
-                <span class="nav-tab-number">06</span>
-                Pro Tips
-            </button>
-            <button class="nav-tab" onclick="showSection('downloads')">
-                <span class="nav-tab-number">07</span>
-                Downloads
-            </button>
-            <button class="nav-tab" onclick="showSection('strategy')">
-                <span class="nav-tab-number">08</span>
-                Strategy
-            </button>
-            <button class="nav-tab" onclick="showSection('notes')">
-                <span class="nav-tab-number">09</span>
-                Notes
-            </button>
-        </div>
-    </nav>
+<header class="masthead">
+  <img src="book-cover.jpg" alt="Among the Dunes cover">
+  <div class="mast-text">
+    <h1><em>Among the Dunes</em></h1>
+    <p class="mast-sub">
+      <span class="fr">Au Milieu des dunes</span><span class="sep">|</span>Louis Camara<span class="sep">|</span>translated by Dominica Chang
+    </p>
+    <p class="mast-sub">French → English<span class="sep">|</span>~70,000 words<span class="sep">|</span>literary fiction, Saint-Louis, Senegal<span class="sep">|</span>complete, rights available</p>
+  </div>
+  <div class="mast-meta">
+    <span class="award">PEN/Heim Translation Fund Grant</span>
+    <div class="mast-files">
+      <a class="workbench" href="https://dunes-translator.pages.dev/" target="_blank" rel="noopener">Translation workbench ↗</a><br>
+      <a href="Among_the_Dunes_Publisher_Database.xlsx" download>Publisher database (.xlsx)</a><br>
+      <a href="Email_Query_Templates.docx" download>Query templates (.docx)</a>
+    </div>
+  </div>
+</header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Section 1: Overview -->
-        <section id="overview" class="section active">
-            <div class="section-header">
-                <h2>Your Secret Weapons</h2>
-                <p>You're not just any translator. Here's why publishers will want to hear from you.</p>
-            </div>
+<nav>
+  <button class="nav-tab active" onclick="showSection('publishers', this)">Publishers</button>
+  <button class="nav-tab" onclick="showSection('templates', this)">Query Letters</button>
+  <button class="nav-tab" onclick="showSection('tracker', this)">Tracker</button>
+  <button class="nav-tab" onclick="showSection('notes', this)">Notes</button>
+</nav>
 
-            <div class="quote-box">
-                <blockquote>"A pitch-perfect translation... expertly handled with a keen ear and a deft hand."</blockquote>
-                <cite>— PEN/Heim Translation Fund Judges</cite>
-            </div>
+<main>
+  <section id="publishers" class="section active">
+    <div class="controls">
+      <div class="filters" id="filters"></div>
+      <p class="summary" id="summary"></p>
+    </div>
 
-            <div class="card">
-                <h3><span class="icon">🏆</span> The PEN/Heim Advantage</h3>
-                <p>Your $4,000 PEN/Heim Translation Fund Grant isn't just money—it's <strong>validation from literary experts</strong>. This award has supported 200+ projects over 23 years. It tells publishers that your translation has already been vetted by professionals.</p>
-            </div>
+    <table class="pubs">
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Publisher</th>
+          <th>Why them</th>
+          <th>Contact</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="pub-body"></tbody>
+    </table>
+    <p class="sync-note" id="source-note">Loading publishers from the Google Sheet…</p>
+  </section>
 
-            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--ocean-deep); margin: 2rem 0 1.5rem;">Your Unique Selling Points</h3>
-
-            <div class="talking-point">
-                <span class="icon">🐕</span>
-                <div>
-                    <h4>Unforgettable Narrator</h4>
-                    <p>Nestor the stray dog offers a fresh, philosophical perspective. Think <em>The Art of Racing in the Rain</em> meets contemporary African literature.</p>
-                </div>
-            </div>
-
-            <div class="talking-point">
-                <span class="icon">🌍</span>
-                <div>
-                    <h4>Underrepresented Literature</h4>
-                    <p>Very few Senegalese novels are available in English. You're helping fill a significant gap in world literature.</p>
-                </div>
-            </div>
-
-            <div class="talking-point">
-                <span class="icon">🎭</span>
-                <div>
-                    <h4>Cultural Authenticity</h4>
-                    <p>Successfully translated Wolof oral traditions into English—judges specifically praised this as "hitting all the right notes."</p>
-                </div>
-            </div>
-
-            <div class="talking-point">
-                <span class="icon">📚</span>
-                <div>
-                    <h4>Complete & Ready</h4>
-                    <p>Your 70,000-word manuscript is done. Publishers love projects that are ready to go.</p>
-                </div>
-            </div>
-
-            <div class="card" style="background: linear-gradient(135deg, var(--sand) 0%, var(--sand-light) 100%); margin-top: 2rem;">
-                <h3><span class="icon">📖</span> Book Details at a Glance</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                    <div><strong>Original Title:</strong> Au Milieu des dunes</div>
-                    <div><strong>Author:</strong> Louis Camara (Senegal)</div>
-                    <div><strong>Translator:</strong> Dominica Chang</div>
-                    <div><strong>Language:</strong> French → English</div>
-                    <div><strong>Word Count:</strong> ~70,000</div>
-                    <div><strong>Genre:</strong> Literary Fiction</div>
-                    <div><strong>Setting:</strong> Saint-Louis, Senegal</div>
-                    <div><strong>Status:</strong> Complete, Rights Available</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Publishers -->
-        <section id="publishers" class="section">
-            <div class="section-header">
-                <h2>Your Target Publishers</h2>
-                <p>20 carefully researched publishers who specialize in translations and African literature.</p>
-            </div>
-
-            <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterPublishers('all')">All Publishers (20)</button>
-                <button class="filter-btn" onclick="filterPublishers('high')">🔥 High Priority (6)</button>
-                <button class="filter-btn" onclick="filterPublishers('medium')">⭐ Medium Priority (10)</button>
-                <button class="filter-btn" onclick="filterPublishers('low')">📋 Worth Trying (4)</button>
-            </div>
-
-            <div class="publisher-grid" id="publisher-grid">
-                <!-- High Priority Publishers -->
-                <div class="publisher-card high" data-priority="high">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">🔥 High Priority</span>
-                        <h4>Archipelago Books</h4>
-                        <div class="type">Nonprofit · Brooklyn, NY</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Perfect</p>
-                        <p>Published <em>Our Lady of the Nile</em> by Scholastique Mukasonga. Proven track record with African literature in translation.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>info@archipelagobooks.org</span>
-                            <button class="copy-btn" onclick="copyEmail('info@archipelagobooks.org', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://archipelagobooks.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Archipelago Books" onchange="updateStatus(this, 'Archipelago Books')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card high" data-priority="high">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">🔥 High Priority</span>
-                        <h4>Deep Vellum Publishing</h4>
-                        <div class="type">Nonprofit · Dallas, TX</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Perfect</p>
-                        <p>Mission-driven, published <em>Tram 83</em> by Congolese author Fiston Mwanza Mujila. Focus on socially engaged literature.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>marketing@deepvellum.org</span>
-                            <button class="copy-btn" onclick="copyEmail('marketing@deepvellum.org', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://deepvellum.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Deep Vellum Publishing" onchange="updateStatus(this, 'Deep Vellum Publishing')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card high" data-priority="high">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">🔥 High Priority</span>
-                        <h4>Iskanchi Press</h4>
-                        <div class="type">Independent</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Perfect</p>
-                        <p>Specifically champions African perspectives and diaspora voices. Your book is exactly what they're looking for.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>info@iskanchi.com</span>
-                            <button class="copy-btn" onclick="copyEmail('info@iskanchi.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://iskanchi.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Iskanchi Press" onchange="updateStatus(this, 'Iskanchi Press')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card high" data-priority="high">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">🔥 High Priority</span>
-                        <h4>University of Georgia Press</h4>
-                        <div class="type">University Press</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Perfect</p>
-                        <p>Has dedicated <strong>African Language Literatures in Translation</strong> series. Wolof traditions make this ideal.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>books@uga.edu</span>
-                            <button class="copy-btn" onclick="copyEmail('books@uga.edu', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://ugapress.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="University of Georgia Press" onchange="updateStatus(this, 'University of Georgia Press')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card high" data-priority="high">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">🔥 High Priority</span>
-                        <h4>Open Letter Books</h4>
-                        <div class="type">University of Rochester</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Perfect</p>
-                        <p>Publishes only translations. Part of Three Percent initiative. <strong>Note: Reading period opens in June.</strong></p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>contact@openletterbooks.org</span>
-                            <button class="copy-btn" onclick="copyEmail('contact@openletterbooks.org', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://openletterbooks.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Open Letter Books" onchange="updateStatus(this, 'Open Letter Books')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card high" data-priority="high">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">🔥 High Priority</span>
-                        <h4>Two Lines Press</h4>
-                        <div class="type">Nonprofit · San Francisco</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Perfect</p>
-                        <p>Champions literary translation and overlooked voices. Strong mission alignment with your project.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>info@twolinespress.com</span>
-                            <button class="copy-btn" onclick="copyEmail('info@twolinespress.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://twolinespress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Two Lines Press" onchange="updateStatus(this, 'Two Lines Press')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <!-- Medium Priority Publishers -->
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>Transit Books</h4>
-                        <div class="type">Nonprofit · Oakland, CA</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>First book was Ugandan epic <em>Kintu</em>. Strong commitment to African literature.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>Check website for submission form</span>
-                        </div>
-                        <div class="publisher-actions"><a href="https://transitbooks.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Transit Books" onchange="updateStatus(this, 'Transit Books')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>New Vessel Press</h4>
-                        <div class="type">Independent · NYC</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>Exclusively publishes translations. Prefers complete manuscripts—you have this ready!</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>info@newvesselpress.com</span>
-                            <button class="copy-btn" onclick="copyEmail('info@newvesselpress.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://newvesselpress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="New Vessel Press" onchange="updateStatus(this, 'New Vessel Press')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>Tilted Axis Press</h4>
-                        <div class="type">Independent · UK</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>Focus on Global Majority literature including Black Atlantic. Publishes 6-9 books/year.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>info@tiltedaxispress.com</span>
-                            <button class="copy-btn" onclick="copyEmail('info@tiltedaxispress.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://tiltedaxispress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Tilted Axis Press" onchange="updateStatus(this, 'Tilted Axis Press')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>Guernica Editions</h4>
-                        <div class="type">Independent · Canada</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>Cross-cultural fiction with world series for translations. Year-round submissions accepted.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>michaelmirolla@guernicaeditions.com</span>
-                            <button class="copy-btn" onclick="copyEmail('michaelmirolla@guernicaeditions.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://guernicaeditions.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Guernica Editions" onchange="updateStatus(this, 'Guernica Editions')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>Arsenal Pulp Press</h4>
-                        <div class="type">Independent · Canada</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>Strong BIPOC focus. Allows simultaneous submissions—great flexibility.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>submissions@arsenalpulp.com</span>
-                            <button class="copy-btn" onclick="copyEmail('submissions@arsenalpulp.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://arsenalpulp.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Arsenal Pulp Press" onchange="updateStatus(this, 'Arsenal Pulp Press')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>Comma Press</h4>
-                        <div class="type">Nonprofit · UK</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>Publishes translated fiction and anthologies. Query founder Ra Page directly.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>ra.page@commapress.co.uk</span>
-                            <button class="copy-btn" onclick="copyEmail('ra.page@commapress.co.uk', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://commapress.co.uk" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Comma Press" onchange="updateStatus(this, 'Comma Press')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>Restless Books</h4>
-                        <div class="type">Independent · Brooklyn</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>Published first Malagasy novel in English. Founded to combat parochial publishing trends.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>editorial@restlessbooks.org</span>
-                            <button class="copy-btn" onclick="copyEmail('editorial@restlessbooks.org', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://restlessbooks.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Restless Books" onchange="updateStatus(this, 'Restless Books')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>Yale: Margellos Series</h4>
-                        <div class="type">University Press</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>Prestigious World Republic of Letters series. PEN/Heim award helps credibility here.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>worldrepublicofletters@yale.edu</span>
-                            <button class="copy-btn" onclick="copyEmail('worldrepublicofletters@yale.edu', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://yalebooks.yale.edu/series/margellos-world-republic-of-letters" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Yale: Margellos Series" onchange="updateStatus(this, 'Yale: Margellos Series')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>Feminist Press at CUNY</h4>
-                        <div class="type">Nonprofit</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>International women writers focus. Social critique angle of your book could fit well.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>info@feministpress.org</span>
-                            <button class="copy-btn" onclick="copyEmail('info@feministpress.org', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://feministpress.org" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Feminist Press at CUNY" onchange="updateStatus(this, 'Feminist Press at CUNY')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card medium" data-priority="medium">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">⭐ Medium</span>
-                        <h4>Balestier Press</h4>
-                        <div class="type">Independent</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Why They're Good</p>
-                        <p>Promotes cross-cultural diversity. Send synopsis + sample translation.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>editor@balestier.com</span>
-                            <button class="copy-btn" onclick="copyEmail('editor@balestier.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://balestier.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Balestier Press" onchange="updateStatus(this, 'Balestier Press')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <!-- Low Priority Publishers -->
-                <div class="publisher-card low" data-priority="low">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">📋 Worth Trying</span>
-                        <h4>New Directions</h4>
-                        <div class="type">Independent</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Notes</p>
-                        <p>Prestigious but no unsolicited manuscripts. Brief query only—worth trying given your award.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>editorial@ndbooks.com</span>
-                            <button class="copy-btn" onclick="copyEmail('editorial@ndbooks.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://ndbooks.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="New Directions" onchange="updateStatus(this, 'New Directions')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card low" data-priority="low">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">📋 Worth Trying</span>
-                        <h4>Peirene Press</h4>
-                        <div class="type">Independent · UK</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Notes</p>
-                        <p>European focus but accepts translator pitches. Less ideal fit but worth a query.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>submissions@peirenepress.com</span>
-                            <button class="copy-btn" onclick="copyEmail('submissions@peirenepress.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://peirenepress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Peirene Press" onchange="updateStatus(this, 'Peirene Press')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card low" data-priority="low">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">📋 Worth Trying</span>
-                        <h4>Dedalus Books</h4>
-                        <div class="type">Independent</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Notes</p>
-                        <p>European literature focus but accepts queries for literary fiction in translation.</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>info@dedalusbooks.com</span>
-                            <button class="copy-btn" onclick="copyEmail('info@dedalusbooks.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://dedalusbooks.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Dedalus Books" onchange="updateStatus(this, 'Dedalus Books')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-
-                <div class="publisher-card low" data-priority="low">
-                    <div class="publisher-card-header">
-                        <span class="priority-badge">📋 Worth Trying</span>
-                        <h4>Coimpress</h4>
-                        <div class="type">Nonprofit</div>
-                    </div>
-                    <div class="publisher-card-body">
-                        <p class="label">Notes</p>
-                        <p>Transgressive poetry and prose with strong translation emphasis. Very long response time (24 months).</p>
-                        <p class="label" style="margin-top: 1rem;">Contact</p>
-                        <div class="publisher-email">
-                            <span>info@coimpress.com</span>
-                            <button class="copy-btn" onclick="copyEmail('info@coimpress.com', this)">Copy</button>
-                        </div>
-                        <div class="publisher-actions"><a href="https://coimpress.com" target="_blank" class="publisher-website">Visit Website →</a><select class="status-dropdown not-started" data-publisher="Coimpress" onchange="updateStatus(this, 'Coimpress')">
-                            <option value="Not Started">Not Started</option>
-                            <option value="Preparing">Preparing</option>
-                            <option value="Contacted">Contacted</option>
-                            <option value="Submitted">Submitted</option>
-                            <option value="Waiting">Waiting</option>
-                            <option value="Responded">Responded</option>
-                            <option value="Accepted">Accepted</option>
-                            <option value="Rejected">Rejected</option>
-                        </select></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Email Templates -->
-        <section id="templates" class="section">
-            <div class="section-header">
-                <h2>Email Templates</h2>
-                <p>Four polished query letters ready to customize. Click to view, then copy and personalize.</p>
-            </div>
-
-            <div class="template-tabs">
-                <button class="template-tab active" onclick="showTemplate('standard')">Standard Query</button>
-                <button class="template-tab" onclick="showTemplate('african')">African Lit Focus</button>
-                <button class="template-tab" onclick="showTemplate('short')">Short & Punchy</button>
-                <button class="template-tab" onclick="showTemplate('translation')">Translation Focus</button>
-            </div>
-
-            <!-- Standard Template -->
+  <section id="templates" class="section">
+    <div class="tpl-tabs">
+                <button class="tpl-tab active" onclick="showTemplate('standard', this)">Standard Query</button>
+                <button class="tpl-tab" onclick="showTemplate('african', this)">African Lit Focus</button>
+                <button class="tpl-tab" onclick="showTemplate('short', this)">Short &amp; Punchy</button>
+                <button class="tpl-tab" onclick="showTemplate('translation', this)">Translation Focus</button>
+    </div>
             <div class="email-template active" id="template-standard">
-                <div class="email-header">
+<div class="email-header">
                     <div class="email-subject">
                         <strong>Subject:</strong> Query: Among the Dunes—PEN/Heim Award-Winning Senegalese Novel in Translation
                     </div>
@@ -1770,18 +556,10 @@
                     <br>
                     <p><em>Attachments available upon request: synopsis, sample translation, author/translator bios</em></p>
                 </div>
-                <button class="copy-template-btn" onclick="copyTemplate('standard')">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                    </svg>
-                    Copy This Template
-                </button>
+                <button class="copy-tpl-btn" onclick="copyTemplate('standard')">Copy this template</button>
             </div>
-
-            <!-- African Lit Focus Template -->
             <div class="email-template" id="template-african">
-                <div class="email-header">
+<div class="email-header">
                     <div class="email-subject">
                         <strong>Subject:</strong> Senegalese Novel in Translation: Wolof Oral Traditions Meet Contemporary Satire
                     </div>
@@ -1808,18 +586,10 @@
                     <p>Dominica Chang<br>
                     <span class="placeholder">[Contact Information]</span></p>
                 </div>
-                <button class="copy-template-btn" onclick="copyTemplate('african')">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                    </svg>
-                    Copy This Template
-                </button>
+                <button class="copy-tpl-btn" onclick="copyTemplate('african')">Copy this template</button>
             </div>
-
-            <!-- Short Template -->
             <div class="email-template" id="template-short">
-                <div class="email-header">
+<div class="email-header">
                     <div class="email-subject">
                         <strong>Subject:</strong> PEN/Heim Grant Winner: AMONG THE DUNES (Senegalese fiction)
                     </div>
@@ -1839,18 +609,10 @@
                     Dominica Chang<br>
                     <span class="placeholder">[Email] | [Phone]</span></p>
                 </div>
-                <button class="copy-template-btn" onclick="copyTemplate('short')">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                    </svg>
-                    Copy This Template
-                </button>
+                <button class="copy-tpl-btn" onclick="copyTemplate('short')">Copy this template</button>
             </div>
-
-            <!-- Translation Focus Template -->
             <div class="email-template" id="template-translation">
-                <div class="email-header">
+<div class="email-header">
                     <div class="email-subject">
                         <strong>Subject:</strong> Translation Proposal: PEN/Heim Award Winner from French (Senegal)
                     </div>
@@ -1879,782 +641,489 @@
                     Dominica Chang, Translator<br>
                     <span class="placeholder">[Contact Information]</span></p>
                 </div>
-                <button class="copy-template-btn" onclick="copyTemplate('translation')">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <rect x="9" y="9" width="13" height="13" rx="2"/>
-                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                    </svg>
-                    Copy This Template
-                </button>
+                <button class="copy-tpl-btn" onclick="copyTemplate('translation')">Copy this template</button>
             </div>
-
-            <div class="card" style="margin-top: 2rem; background: var(--sand-light);">
-                <h3><span class="icon">💡</span> Which Template Should You Use?</h3>
-                <div style="margin-top: 1rem;">
-                    <p><strong>Standard Query →</strong> Most publishers, your default choice</p>
-                    <p><strong>African Lit Focus →</strong> Iskanchi, Archipelago, UGA Press</p>
-                    <p><strong>Short & Punchy →</strong> Follow-ups, brief pitch requests, New Directions</p>
-                    <p><strong>Translation Focus →</strong> Open Letter, Two Lines, New Vessel</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Checklist -->
-        <section id="tracker" class="section">
-            <div class="section-header">
-                <h2>Submission Tracker</h2>
-                <p>Track your submissions, responses, and follow-ups in real time.</p>
-            </div>
-
-            <div class="card" style="padding: 0; overflow: hidden;">
-                <iframe
-                    src="https://docs.google.com/spreadsheets/d/1rFr_kkELlyQI4YOKCJ0J1_7xFfzhRHUQT5R7HkqHFWo/edit?usp=sharing&rm=minimal&widget=true&headers=false"
-                    style="width: 100%; height: 600px; border: none;"
-                    title="Publisher Submission Tracker">
-                </iframe>
-            </div>
-
-            <p style="text-align: center; margin-top: 1rem; color: var(--ocean);">
-                <a href="https://docs.google.com/spreadsheets/d/1rFr_kkELlyQI4YOKCJ0J1_7xFfzhRHUQT5R7HkqHFWo/edit?usp=sharing" target="_blank" style="color: var(--ocean); text-decoration: underline;">Open in Google Sheets ↗</a>
-            </p>
-        </section>
-
-        <!-- Section 5: Timeline -->
-        <section id="timeline" class="section">
-            <div class="section-header">
-                <h2>Your Submission Timeline</h2>
-                <p>A realistic schedule for getting your queries out and following up.</p>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Week 1-2: Preparation</h4>
-                        <p>Gather all materials from checklist. Research your top 6 HIGH priority publishers. Visit each website, note similar titles, find editor names. Customize query templates.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Week 3: First Wave</h4>
-                        <p>Submit to 5 HIGH priority publishers (skip Open Letter—they open in June). Send 1-2 queries per day. Log each submission immediately in your tracker.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Week 4-5: Second Wave</h4>
-                        <p>Submit to MEDIUM priority publishers. Continue research + personalization for each. Aim for 10-12 queries total by end of week 5.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Month 2: Patience Mode</h4>
-                        <p>Check email daily but expect mostly silence. Log any responses. If you get a manuscript request—celebrate and send within 24-48 hours! Continue submitting to remaining publishers.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Month 3: Follow-Ups</h4>
-                        <p>Send polite follow-up emails to publishers who acknowledged your query. Keep follow-ups brief. Continue submitting to any remaining prospects.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Month 4+: Persistence</h4>
-                        <p>Continue systematic follow-ups every 6 weeks. Expand to additional publishers if needed. Remember: most books get rejected 10-30 times before finding a home. Stay patient!</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>June: Open Letter Window</h4>
-                        <p>Open Letter Books' reading period opens! Submit your query to this prestigious University of Rochester press.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6: Tips -->
-        <section id="tips" class="section">
-            <div class="section-header">
-                <h2>Pro Tips for Success</h2>
-                <p>Essential guidance to maximize your chances of finding the right publisher.</p>
-            </div>
-
-            <div class="tips-grid">
-                <div class="tip-card do">
-                    <h4>✓ DO These Things</h4>
-                    <ul>
-                        <li>Research each publisher before submitting</li>
-                        <li>Personalize every query letter</li>
-                        <li>Lead with the PEN/Heim award</li>
-                        <li>Follow submission guidelines exactly</li>
-                        <li>Send between Tuesday-Thursday, 9am-2pm</li>
-                        <li>Proofread everything 3+ times</li>
-                        <li>Log every submission immediately</li>
-                        <li>Stay professional and patient</li>
-                    </ul>
-                </div>
-                <div class="tip-card dont">
-                    <h4>✗ DON'T Do These Things</h4>
-                    <ul>
-                        <li>Send generic, one-size-fits-all queries</li>
-                        <li>Include attachments unless requested</li>
-                        <li>Submit to multiple editors at same press</li>
-                        <li>Follow up before 12 weeks have passed</li>
-                        <li>Take rejection personally</li>
-                        <li>Give up after a few rejections</li>
-                        <li>Oversell with hyperbole</li>
-                        <li>Forget to mention the award!</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card" style="margin-top: 2rem;">
-                <h3><span class="icon">📧</span> Customization Quick Reference</h3>
-                <p style="margin-bottom: 1rem;">Use these specific references when writing to each publisher:</p>
-                
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>Archipelago Books</h4>
-                        <p>"I was inspired by Archipelago's publication of Scholastique Mukasonga's <em>Our Lady of the Nile</em>, which brought important Rwandan voices to English readers..."</p>
-                    </div>
-                </div>
-                
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>Deep Vellum</h4>
-                        <p>"Deep Vellum's mission to bring the world into conversation through literature resonates deeply with this project. Like Fiston Mwanza Mujila's <em>Tram 83</em>..."</p>
-                    </div>
-                </div>
-                
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>Iskanchi Press</h4>
-                        <p>"Iskanchi's commitment to championing African perspectives makes it the ideal home for this Senegalese novel..."</p>
-                    </div>
-                </div>
-                
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>University of Georgia Press</h4>
-                        <p>"Your African Language Literatures in Translation series is perfectly suited for <em>Among the Dunes</em>. While written in French, the novel is deeply rooted in Wolof oral traditions..."</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote-box" style="margin-top: 2rem;">
-                <blockquote>"You have a PEN/Heim award-winning translation. That puts you in the top tier of submissions. Be confident!"</blockquote>
-                <cite>— Remember this when doubt creeps in</cite>
-            </div>
-        </section>
-    
-        <!-- Section 7: Downloads -->
-        <section id="downloads" class="section">
-            <div class="section-header">
-                <h2>Download Your Files</h2>
-                <p>All the tools you need, ready to download and use offline.</p>
-            </div>
-
-            <div class="card" style="text-align: center; padding: 3rem;">
-                <h3 style="margin-bottom: 2rem;"><span class="icon">📊</span> Publisher Database (Excel)</h3>
-                <p style="margin-bottom: 1.5rem;">Complete database of 20 publishers with contact info, priorities, and a submission tracker.</p>
-                <button onclick="downloadFile('xlsx')" class="download-btn">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-                    </svg>
-                    Download Excel Database
-                </button>
-            </div>
-
-            <div class="card" style="text-align: center; padding: 3rem;">
-                <h3 style="margin-bottom: 2rem;"><span class="icon">📝</span> Email Query Templates (Word)</h3>
-                <p style="margin-bottom: 1.5rem;">Four polished query letter templates ready to customize and send.</p>
-                <button onclick="downloadFile('docx')" class="download-btn">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-                    </svg>
-                    Download Word Templates
-                </button>
-            </div>
-
-            <div class="card" style="background: linear-gradient(135deg, var(--ocean) 0%, var(--ocean-deep) 100%); color: white; text-align: center; padding: 2rem;">
-                <h3 style="color: white; margin-bottom: 1rem;">💡 Pro Tip</h3>
-                <p>The email templates are also available in the "Email Templates" tab above where you can copy them directly. The Word document is great for offline editing and keeping everything organized.</p>
-            </div>
-        </section>
-
-        <!-- Section 8: Strategy -->
-        <section id="strategy" class="section">
-            <div class="section-header">
-                <h2>Publisher Selection Strategy</h2>
-                <p>The strategic rationale behind the 20 publishers selected for your submission campaign.</p>
-            </div>
-
-            <div class="quote-box">
-                <blockquote>"The PEN/Heim award provides significant credibility and positions this submission above typical unsolicited manuscripts."</blockquote>
-                <cite>— Your Key Asset</cite>
-            </div>
-
-            <div class="card">
-                <h3><span class="icon">🎯</span> Selection Criteria</h3>
-                <p style="margin-bottom: 1rem;">Publishers were evaluated against five core criteria:</p>
-                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
-                    <tr style="background: var(--sand); font-weight: 600;">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Criterion</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Weight</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Rationale</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>Track Record with African Literature</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark); color: var(--success); font-weight: 600;">High</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Publishers who have successfully brought African voices to English readers understand the market and editorial requirements</td>
-                    </tr>
-                    <tr style="background: var(--sand-light);">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>Translation Focus</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark); color: var(--success); font-weight: 600;">High</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Presses specializing in translation have established workflows, marketing strategies, and reader bases for international literature</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>Mission Alignment</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark); color: var(--dune-gold); font-weight: 600;">Medium</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Nonprofit and mission-driven presses often prioritize literary merit over commercial considerations</td>
-                    </tr>
-                    <tr style="background: var(--sand-light);">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>Openness to Submissions</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark); color: var(--dune-gold); font-weight: 600;">Medium</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Presses accepting unsolicited queries or translator-initiated projects</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>Distribution Reach</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark); color: var(--dune-gold); font-weight: 600;">Medium</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Ability to get books into libraries, bookstores, and academic settings</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="card">
-                <h3><span class="icon">🔥</span> High Priority (6 Publishers)</h3>
-                <p style="margin-bottom: 1rem; color: var(--ocean);"><em>Strongest alignment with project; submit first</em></p>
-
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>Archipelago Books</h4>
-                        <p>Published Scholastique Mukasonga's <em>Our Lady of the Nile</em>—direct precedent for award-winning African literary fiction in translation. Nonprofit with strong literary reputation.</p>
-                    </div>
-                </div>
-
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>Deep Vellum Publishing</h4>
-                        <p>Published Fiston Mwanza Mujila's <em>Tram 83</em> (Congolese). Mission explicitly focuses on "bringing the world into conversation." Social critique angle aligns with Nestor's satirical voice.</p>
-                    </div>
-                </div>
-
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>Iskanchi Press</h4>
-                        <p><em>Exclusively</em> champions African perspectives and diaspora voices. This is their core mission—your book is exactly what they exist to publish.</p>
-                    </div>
-                </div>
-
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>University of Georgia Press</h4>
-                        <p>Has dedicated <strong>African Language Literatures in Translation</strong> series. The Wolof oral tradition elements make this an ideal fit for their academic-literary crossover list.</p>
-                    </div>
-                </div>
-
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>Open Letter Books</h4>
-                        <p>Publishes <em>only</em> translations. Part of the Three Percent initiative tracking translation statistics. High prestige. <strong>Note: Reading period opens June—calendar this.</strong></p>
-                    </div>
-                </div>
-
-                <div class="talking-point">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>Two Lines Press</h4>
-                        <p>Nonprofit championing literary translation and overlooked voices. Strong Bay Area literary community support. Mission-driven with excellent distribution.</p>
-                    </div>
-                </div>
-
-                <div style="background: var(--sand-light); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
-                    <strong>Why These Six First:</strong> Each has either (a) published directly comparable work, (b) has a mission statement that explicitly matches your book's profile, or (c) both. The PEN/Heim award will carry significant weight with these editorially-focused presses.
-                </div>
-            </div>
-
-            <div class="card">
-                <h3><span class="icon">⭐</span> Medium Priority (11 Publishers)</h3>
-                <p style="margin-bottom: 1rem; color: var(--ocean);"><em>Strong fit; submit in second wave</em></p>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>Transit Books</h4>
-                            <p>First book was Ugandan epic <em>Kintu</em>—demonstrates commitment to African literature.</p>
-                        </div>
-                    </div>
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>New Vessel Press</h4>
-                            <p>Exclusively translations; prefers complete manuscripts (you have this).</p>
-                        </div>
-                    </div>
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>Tilted Axis Press</h4>
-                            <p>UK-based; focuses on "Global Majority" literature including Black Atlantic voices.</p>
-                        </div>
-                    </div>
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>Guernica Editions</h4>
-                            <p>Canadian press with cross-cultural focus. Year-round submissions accepted.</p>
-                        </div>
-                    </div>
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>Arsenal Pulp Press</h4>
-                            <p>Strong BIPOC focus; allows simultaneous submissions (strategic flexibility).</p>
-                        </div>
-                    </div>
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>Comma Press</h4>
-                            <p>UK nonprofit; translated fiction focus. Query founder Ra Page directly.</p>
-                        </div>
-                    </div>
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>Restless Books</h4>
-                            <p>Published first Malagasy novel in English—precedent for underrepresented African literature.</p>
-                        </div>
-                    </div>
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>Yale: Margellos Series</h4>
-                            <p>Prestigious university press series. PEN/Heim credential helps overcome barriers.</p>
-                        </div>
-                    </div>
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>Feminist Press at CUNY</h4>
-                            <p>International women writers focus. Social critique angle positions book well.</p>
-                        </div>
-                    </div>
-                    <div class="talking-point" style="margin-bottom: 0;">
-                        <div>
-                            <h4>Balestier Press</h4>
-                            <p>Cross-cultural diversity mission. Accepts synopsis + sample format.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: var(--sand-light); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
-                    <strong>Why Medium Priority:</strong> These publishers have strong translation programs or literary missions but either have less specific focus on African literature, are more competitive/selective, or have logistical considerations (UK/Canadian distribution, specific submission windows).
-                </div>
-            </div>
-
-            <div class="card">
-                <h3><span class="icon">📋</span> Worth Trying (3 Publishers)</h3>
-                <p style="margin-bottom: 1rem; color: var(--ocean);"><em>Lower probability but high reward if successful</em></p>
-
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr style="background: var(--sand); font-weight: 600;">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Publisher</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Primary Rationale</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Caveat</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>New Directions</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Prestigious literary press with history of international literature</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">No unsolicited manuscripts—query only. PEN/Heim may open door.</td>
-                    </tr>
-                    <tr style="background: var(--sand-light);">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>Peirene Press</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Strong translation focus, innovative marketing</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">European focus; African literature less common on their list</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>Dedalus Books</strong></td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">European literary fiction in translation</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Primarily European focus; worth query given translation emphasis</td>
-                    </tr>
-                </table>
-
-                <div style="background: var(--sand-light); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
-                    <strong>Why Include:</strong> The prestige factor of these presses justifies the lower success probability. A brief, professional query costs little and the PEN/Heim award may generate interest where cold submissions typically fail.
-                </div>
-            </div>
-
-            <div class="card">
-                <h3><span class="icon">🚫</span> Publishers NOT Included</h3>
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr style="background: var(--sand); font-weight: 600;">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Category</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Examples</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Rationale for Exclusion</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Big Five Imprints</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Knopf, FSG, Penguin</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Require agents; translation lists highly competitive</td>
-                    </tr>
-                    <tr style="background: var(--sand-light);">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Genre-Specific Presses</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Mystery, romance, SFF</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Literary fiction; genre mismatch</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Poetry-Focused</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Copper Canyon, Graywolf poetry</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Wrong format</td>
-                    </tr>
-                    <tr style="background: var(--sand-light);">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Closed to Submissions</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Various</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">No pathway for unsolicited work</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">No Translation History</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Various literary presses</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Lack infrastructure for translated work</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="card">
-                <h3><span class="icon">📊</span> Success Metrics</h3>
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr style="background: var(--sand); font-weight: 600;">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Metric</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Target</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Queries sent (Wave 1)</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>5-6</strong></td>
-                    </tr>
-                    <tr style="background: var(--sand-light);">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Queries sent (Total)</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>15-20</strong></td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Manuscript requests</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>3-5</strong> (15-25% response rate is strong)</td>
-                    </tr>
-                    <tr style="background: var(--sand-light);">
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);">Timeline to offer</td>
-                        <td style="padding: 0.75rem; border: 1px solid var(--sand-dark);"><strong>6-12 months</strong> typical</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="quote-box" style="margin-top: 2rem;">
-                <blockquote>"This publisher list prioritizes mission alignment and track record over raw prestige. The PEN/Heim award significantly elevates this submission above typical slush pile queries."</blockquote>
-                <cite>— Strategic Conclusion</cite>
-            </div>
-
-            <div class="card" style="background: linear-gradient(135deg, var(--sand) 0%, var(--sand-light) 100%); margin-top: 2rem; text-align: center;">
-                <p style="font-size: 1.1rem; margin: 0;"><em>The 20 selected publishers represent the strongest opportunities for placing an award-winning Senegalese novel in translation with a press that will champion it editorially and market it effectively.</em></p>
-                <p style="margin-top: 1rem; color: var(--ocean); font-size: 0.9rem;">Prepared for Dominica Chang | December 2024</p>
-            </div>
-        </section>
-
-        <!-- Notes Section -->
-        <section id="notes" class="section">
-            <div class="section-header">
-                <h2>Notes</h2>
-                <p>Your personal notes — saved automatically in your browser.</p>
-            </div>
-
-            <div class="card">
-                <h3><span class="icon">📝</span> My Notes</h3>
-                <textarea id="personal-notes" class="personal-notes" placeholder="Write your notes here... tracking conversations, ideas, follow-up reminders, etc." oninput="saveNotes()"></textarea>
-                <p style="font-size: 0.8rem; color: var(--ocean); margin-top: 0.5rem;">Auto-saved as you type</p>
-            </div>
-
-            <div class="card" style="margin-top: 2rem;">
-                <h3><span class="icon">📧</span> Send a Note to the Guide Creator</h3>
-                <p style="margin-bottom: 1rem; color: #666;">Found an error or want to suggest a new publisher?</p>
-                <form action="https://formsubmit.co/omatty@gmail.com" method="POST" class="notes-form" style="max-width: 100%;">
-                    <input type="hidden" name="_subject" value="Among the Dunes - Note from Dominica">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://omatty123.github.io/among-the-dunes/?sent=true">
-
-                    <div class="form-group">
-                        <label for="note-type">Type</label>
-                        <select name="type" id="note-type" required>
-                            <option value="">Select...</option>
-                            <option value="New Publisher">Add a Publisher</option>
-                            <option value="Correction">Correction</option>
-                            <option value="Update">Update Info</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="note-message">Message</label>
-                        <textarea name="message" id="note-message" rows="5" placeholder="Details..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send →</button>
-                </form>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M20 6L9 17l-5-5"/>
-        </svg>
-        <span id="toast-message">Copied to clipboard!</span>
+    <div class="tpl-guide">
+      <h3>Which one to send</h3>
+      <p><b>Standard</b> — most publishers, the default. <b>African Lit Focus</b> — Iskanchi, Archipelago, UGA Press. <b>Short &amp; Punchy</b> — follow-ups, brief pitch requests, New Directions. <b>Translation Focus</b> — Open Letter, Two Lines, New Vessel.</p>
     </div>
+  </section>
 
-    <script>
-        // Navigation
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Update nav tabs
-            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-            event.target.closest('.nav-tab')?.classList.add('active') || 
-                document.querySelector(`[onclick="showSection('${sectionId}')"]`).classList.add('active');
-            
-            // Scroll to top of content
-            document.querySelector('.nav-container').scrollIntoView({ behavior: 'smooth' });
-        }
+  <section id="tracker" class="section">
+    <div class="sheet-frame">
+      <iframe src="https://docs.google.com/spreadsheets/d/1rFr_kkELlyQI4YOKCJ0J1_7xFfzhRHUQT5R7HkqHFWo/edit?usp=sharing&amp;rm=minimal&amp;widget=true&amp;headers=false" title="Publisher submission tracker"></iframe>
+    </div>
+    <p class="sync-note"><a href="https://docs.google.com/spreadsheets/d/1rFr_kkELlyQI4YOKCJ0J1_7xFfzhRHUQT5R7HkqHFWo/edit?usp=sharing" target="_blank" rel="noopener">Open in Google Sheets ↗</a></p>
+  </section>
 
-        // Publisher filtering
-        function filterPublishers(priority) {
-            const cards = document.querySelectorAll('.publisher-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            buttons.forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            cards.forEach(card => {
-                if (priority === 'all' || card.dataset.priority === priority) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+  <section id="notes" class="section">
+    <div class="panel">
+      <h3>My notes</h3>
+      <textarea id="personal-notes" placeholder="Conversations, ideas, follow-up reminders…" oninput="saveNotes()"></textarea>
+      <p class="autosave">Saved in this browser as you type.</p>
+    </div>
+    <div class="panel">
+      <h3>Suggest a change to this page</h3>
+      <form action="https://formsubmit.co/omatty@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Among the Dunes - Note from Dominica">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://omatty123.github.io/among-the-dunes/?sent=true">
+        <div class="form-row">
+          <label for="note-type">Type</label>
+          <select name="type" id="note-type" required>
+            <option value="">Select…</option>
+            <option value="New Publisher">Add a publisher</option>
+            <option value="Correction">Correction</option>
+            <option value="Update">Update info</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="note-message">Message</label>
+          <textarea name="message" id="note-message" rows="5" placeholder="Details…" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send</button>
+      </form>
+    </div>
+  </section>
+</main>
 
-        // Email templates
-        function showTemplate(templateId) {
-            document.querySelectorAll('.email-template').forEach(t => t.classList.remove('active'));
-            document.getElementById('template-' + templateId).classList.add('active');
-            
-            document.querySelectorAll('.template-tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-        }
+<div class="toast" id="toast"><span id="toast-message"></span></div>
 
-        // Copy email
-        function copyEmail(email, button) {
-            navigator.clipboard.writeText(email).then(() => {
-                button.textContent = 'Copied!';
-                button.classList.add('copied');
-                showToast('Email copied to clipboard!');
-                setTimeout(() => {
-                    button.textContent = 'Copy';
-                    button.classList.remove('copied');
-                }, 2000);
-            });
-        }
+<script>
+  const SHEET_API = 'https://script.google.com/macros/s/AKfycbzCn0OVw4BufZxOYv38_jNPzDS2uQXgGAEPyH28yBZyyQMng3qG4VMI4iwTwNA9fOXAPA/exec';
+  const VALID_STATUSES = ["Not Started", "Preparing", "Contacted", "Submitted", "Waiting", "Responded", "Accepted", "Rejected"];
 
-        // Status dropdown - syncs with Google Sheet
-        const SHEET_API = 'https://script.google.com/macros/s/AKfycbzCn0OVw4BufZxOYv38_jNPzDS2uQXgGAEPyH28yBZyyQMng3qG4VMI4iwTwNA9fOXAPA/exec';
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    window.scrollTo({ top: 0 });
+  }
 
-        function updateStatus(select, publisher) {
-            const status = select.value;
-            select.className = 'status-dropdown ' + status.replace(' ', '-').toLowerCase();
+  function filterPublishers(priority, btn) {
+    document.querySelectorAll('.pub-row').forEach(row => {
+      row.style.display = (priority === 'all' || row.dataset.priority === priority) ? '' : 'none';
+    });
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
 
-            // Save to localStorage as backup
-            localStorage.setItem('status_' + publisher, status);
+  /* ================= publisher list, read from the Google Sheet =================
+     Sheet columns: A Publisher | B Priority | C Date contacted | D Status | E Notes
+                    F Type | G Why them | H Email | I Website | J Caveat | K Pitch line
+     A-E are hers to work in. F-K are descriptive and may be blank, in which case the
+     baked-in FALLBACK text is used. Editing the Sheet changes this page. ========== */
+  const FALLBACK = [
+  {
+    "name": "Archipelago Books",
+    "priority": "HIGH",
+    "type": "Nonprofit · Brooklyn, NY",
+    "why": "Published Scholastique Mukasonga's <em>Our Lady of the Nile</em> — direct precedent for award-winning African literary fiction in translation.",
+    "email": "info@archipelagobooks.org",
+    "url": "https://archipelagobooks.org",
+    "caveat": "",
+    "pitch": "I was inspired by Archipelago's publication of Scholastique Mukasonga's Our Lady of the Nile, which brought important Rwandan voices to English readers…"
+  },
+  {
+    "name": "Deep Vellum Publishing",
+    "priority": "HIGH",
+    "type": "Nonprofit · Dallas, TX",
+    "why": "Published Fiston Mwanza Mujila's <em>Tram 83</em> (Congolese). Mission explicitly focuses on “bringing the world into conversation.”",
+    "email": "marketing@deepvellum.org",
+    "url": "https://deepvellum.org",
+    "caveat": "",
+    "pitch": "Deep Vellum's mission to bring the world into conversation through literature resonates deeply with this project. Like Fiston Mwanza Mujila's Tram 83…"
+  },
+  {
+    "name": "Iskanchi Press",
+    "priority": "HIGH",
+    "type": "Independent",
+    "why": "Exclusively champions African perspectives and diaspora voices. This is their core mission.",
+    "email": "info@iskanchi.com",
+    "url": "https://iskanchi.com",
+    "caveat": "",
+    "pitch": "Iskanchi's commitment to championing African perspectives makes it the ideal home for this Senegalese novel…"
+  },
+  {
+    "name": "University of Georgia Press",
+    "priority": "HIGH",
+    "type": "University Press",
+    "why": "Has a dedicated <strong>African Language Literatures in Translation</strong> series. The Wolof oral tradition elements fit their academic-literary crossover list.",
+    "email": "books@uga.edu",
+    "url": "https://ugapress.org",
+    "caveat": "",
+    "pitch": "Your African Language Literatures in Translation series is perfectly suited for Among the Dunes. While written in French, the novel is deeply rooted in Wolof oral traditions…"
+  },
+  {
+    "name": "Open Letter Books",
+    "priority": "HIGH",
+    "type": "University of Rochester",
+    "why": "Publishes <em>only</em> translations. Part of the Three Percent initiative tracking translation statistics.",
+    "email": "contact@openletterbooks.org",
+    "url": "https://openletterbooks.org",
+    "caveat": "Reading period opens in June — calendar this.",
+    "pitch": ""
+  },
+  {
+    "name": "Two Lines Press",
+    "priority": "HIGH",
+    "type": "Nonprofit · San Francisco",
+    "why": "Nonprofit championing literary translation and overlooked voices. Mission-driven with strong distribution.",
+    "email": "info@twolinespress.com",
+    "url": "https://twolinespress.com",
+    "caveat": "",
+    "pitch": ""
+  },
+  {
+    "name": "Transit Books",
+    "priority": "MEDIUM",
+    "type": "Nonprofit · Oakland, CA",
+    "why": "First book was the Ugandan epic <em>Kintu</em> — demonstrates commitment to African literature.",
+    "email": "",
+    "url": "https://transitbooks.org",
+    "caveat": "No query email — use the submission form on their site.",
+    "pitch": ""
+  },
+  {
+    "name": "New Vessel Press",
+    "priority": "MEDIUM",
+    "type": "Independent · NYC",
+    "why": "Publishes translations exclusively; prefers complete manuscripts.",
+    "email": "info@newvesselpress.com",
+    "url": "https://newvesselpress.com",
+    "caveat": "",
+    "pitch": ""
+  },
+  {
+    "name": "Tilted Axis Press",
+    "priority": "MEDIUM",
+    "type": "Independent · UK",
+    "why": "Focuses on “Global Majority” literature including Black Atlantic voices. Publishes 6–9 books a year.",
+    "email": "info@tiltedaxispress.com",
+    "url": "https://tiltedaxispress.com",
+    "caveat": "",
+    "pitch": ""
+  },
+  {
+    "name": "Guernica Editions",
+    "priority": "MEDIUM",
+    "type": "Independent · Canada",
+    "why": "Cross-cultural fiction with a world series for translations.",
+    "email": "michaelmirolla@guernicaeditions.com",
+    "url": "https://guernicaeditions.com",
+    "caveat": "Year-round submissions accepted.",
+    "pitch": ""
+  },
+  {
+    "name": "Arsenal Pulp Press",
+    "priority": "MEDIUM",
+    "type": "Independent · Canada",
+    "why": "Strong BIPOC focus.",
+    "email": "submissions@arsenalpulp.com",
+    "url": "https://arsenalpulp.com",
+    "caveat": "Allows simultaneous submissions.",
+    "pitch": ""
+  },
+  {
+    "name": "Comma Press",
+    "priority": "MEDIUM",
+    "type": "Nonprofit · UK",
+    "why": "Publishes translated fiction and anthologies.",
+    "email": "ra.page@commapress.co.uk",
+    "url": "https://commapress.co.uk",
+    "caveat": "Query founder Ra Page directly.",
+    "pitch": ""
+  },
+  {
+    "name": "Restless Books",
+    "priority": "MEDIUM",
+    "type": "Independent · Brooklyn",
+    "why": "Published the first Malagasy novel in English. Founded to counter parochial publishing trends.",
+    "email": "editorial@restlessbooks.org",
+    "url": "https://restlessbooks.org",
+    "caveat": "",
+    "pitch": ""
+  },
+  {
+    "name": "Yale: Margellos",
+    "priority": "MEDIUM",
+    "type": "University Press",
+    "why": "Margellos World Republic of Letters series. The PEN/Heim credential helps overcome the prestige barrier here.",
+    "email": "worldrepublicofletters@yale.edu",
+    "url": "https://yalebooks.yale.edu/books/series/margellos-world-republic-letters/",
+    "caveat": "",
+    "pitch": ""
+  },
+  {
+    "name": "Feminist Press at CUNY",
+    "priority": "MEDIUM",
+    "type": "Nonprofit",
+    "why": "International women writers focus; the book's social-critique angle positions it well.",
+    "email": "info@feministpress.org",
+    "url": "https://feministpress.org",
+    "caveat": "",
+    "pitch": ""
+  },
+  {
+    "name": "Balestier Press",
+    "priority": "MEDIUM",
+    "type": "Independent",
+    "why": "Cross-cultural diversity mission.",
+    "email": "editor@balestier.com",
+    "url": "https://balestier.com",
+    "caveat": "Send synopsis + sample translation.",
+    "pitch": ""
+  },
+  {
+    "name": "New Directions",
+    "priority": "LOW",
+    "type": "Independent",
+    "why": "Prestigious literary press with a long history of international literature.",
+    "email": "editorial@ndbooks.com",
+    "url": "https://ndbooks.com",
+    "caveat": "No unsolicited manuscripts — brief query only.",
+    "pitch": ""
+  },
+  {
+    "name": "Peirene Press",
+    "priority": "LOW",
+    "type": "Independent · UK",
+    "why": "Strong translation focus, innovative marketing. Accepts translator pitches.",
+    "email": "submissions@peirenepress.com",
+    "url": "https://peirenepress.com",
+    "caveat": "European focus; African literature uncommon on their list.",
+    "pitch": ""
+  },
+  {
+    "name": "Dedalus Books",
+    "priority": "LOW",
+    "type": "Independent",
+    "why": "European literary fiction in translation; accepts queries.",
+    "email": "info@dedalusbooks.com",
+    "url": "https://dedalusbooks.com",
+    "caveat": "Primarily European focus.",
+    "pitch": ""
+  },
+  {
+    "name": "Coimpress",
+    "priority": "LOW",
+    "type": "Nonprofit",
+    "why": "Transgressive poetry and prose with a strong translation emphasis.",
+    "email": "info@coimpress.com",
+    "url": "https://coimpress.com",
+    "caveat": "Response time up to 24 months. Their site's security certificate is expired — the browser will warn.",
+    "pitch": ""
+  }
+];
+  const CSV_URL = 'https://docs.google.com/spreadsheets/d/1rFr_kkELlyQI4YOKCJ0J1_7xFfzhRHUQT5R7HkqHFWo/gviz/tq?tqx=out:csv';
+  const PLABEL = { HIGH: 'High', MEDIUM: 'Med', LOW: 'Low' };
 
-            // Sync to Google Sheet using URL params (avoids CORS issues)
-            const url = SHEET_API + '?action=update&publisher=' + encodeURIComponent(publisher) + '&status=' + encodeURIComponent(status);
-            fetch(url, { mode: 'no-cors' });
-        }
+  function parseCSV(text) {
+    const rows = [];
+    let row = [], field = '', quoted = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (quoted) {
+        if (c === '"') {
+          if (text[i + 1] === '"') { field += '"'; i++; } else { quoted = false; }
+        } else field += c;
+      } else if (c === '"') quoted = true;
+      else if (c === ',') { row.push(field); field = ''; }
+      else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+      else if (c !== '\r') field += c;
+    }
+    if (field !== '' || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
 
-        function loadStatuses() {
-            // First load from localStorage for instant display
-            document.querySelectorAll('.status-dropdown').forEach(select => {
-                const publisher = select.dataset.publisher;
-                const saved = localStorage.getItem('status_' + publisher);
-                if (saved) {
-                    select.value = saved;
-                    select.className = 'status-dropdown ' + saved.replace(' ', '-').toLowerCase();
-                }
-            });
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
 
-            // Then fetch from Google Sheet to get latest
-            fetch(SHEET_API)
-                .then(r => r.json())
-                .then(statuses => {
-                    document.querySelectorAll('.status-dropdown').forEach(select => {
-                        const publisher = select.dataset.publisher;
-                        const status = statuses[publisher];
-                        const validStatuses = ['Not Started', 'Preparing', 'Contacted', 'Submitted', 'Waiting', 'Responded', 'Accepted', 'Rejected'];
-                        if (status && validStatuses.includes(status)) {
-                            select.value = status;
-                            select.className = 'status-dropdown ' + status.replace(' ', '-').toLowerCase();
-                            localStorage.setItem('status_' + publisher, status);
-                        } else {
-                            select.value = 'not-started';
-                            select.className = 'status-dropdown not-started';
-                        }
-                    });
-                })
-                .catch(e => {
-                    console.log('Using cached statuses');
-                    // Ensure defaults on error
-                    document.querySelectorAll('.status-dropdown').forEach(select => {
-                        if (!select.value) {
-                            select.value = 'not-started';
-                            select.className = 'status-dropdown not-started';
-                        }
-                    });
-                });
-        }
+  // descriptive columns may use <em>/<strong> for book titles; everything else is escaped
+  function richText(s) {
+    return esc(s).replace(/&lt;(\/?)(em|strong|i|b)&gt;/g, '<$1$2>');
+  }
 
-        document.addEventListener('DOMContentLoaded', loadStatuses);
+  // her Notes column is plain text she types - linkify bare URLs, escape the rest
+  function linkify(s) {
+    return esc(s).replace(/(https?:\/\/[^\s]+)/g,
+      '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  }
 
-        // Personal notes
-        function saveNotes() {
-            const notes = document.getElementById('personal-notes').value;
-            localStorage.setItem('personal_notes', notes);
-        }
+  function buildPublishers(sheetRows) {
+    const byName = {};
+    FALLBACK.forEach(f => { byName[f.name] = f; });
+    if (!sheetRows) return FALLBACK.map(f => Object.assign({}, f, { status: '', dateContacted: '', herNote: '' }));
 
-        function loadNotes() {
-            const saved = localStorage.getItem('personal_notes');
-            if (saved) {
-                document.getElementById('personal-notes').value = saved;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadNotes);
-
-        // Copy template
-        function copyTemplate(templateId) {
-            const template = document.getElementById('template-' + templateId);
-            const body = template.querySelector('.email-body');
-            const subject = template.querySelector('.email-subject').textContent.replace('Subject: ', '');
-            
-            const text = 'Subject: ' + subject + '\n\n' + body.innerText;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                showToast('Template copied to clipboard!');
-            });
-        }
-
-        // Toast notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toast-message').textContent = message;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
-        }
-
-        // Checklist
-        function toggleCheckbox(checkbox) {
-            checkbox.classList.toggle('checked');
-            checkbox.closest('.checklist-item').classList.toggle('completed');
-            updateProgress();
-            saveChecklistState();
-        }
-
-        function updateProgress() {
-            const total = document.querySelectorAll('.checklist-checkbox').length;
-            const checked = document.querySelectorAll('.checklist-checkbox.checked').length;
-            const percent = (checked / total) * 100;
-            
-            document.getElementById('checklist-progress').style.width = percent + '%';
-            document.getElementById('checklist-count').textContent = checked;
-        }
-
-        // Save/load checklist state
-        function saveChecklistState() {
-            const checkboxes = document.querySelectorAll('.checklist-checkbox');
-            const state = Array.from(checkboxes).map(cb => cb.classList.contains('checked'));
-            localStorage.setItem('amongTheDunesChecklist', JSON.stringify(state));
-        }
-
-        function loadChecklistState() {
-            const saved = localStorage.getItem('amongTheDunesChecklist');
-            if (saved) {
-                const state = JSON.parse(saved);
-                const checkboxes = document.querySelectorAll('.checklist-checkbox');
-                state.forEach((checked, i) => {
-                    if (checked && checkboxes[i]) {
-                        checkboxes[i].classList.add('checked');
-                        checkboxes[i].closest('.checklist-item').classList.add('completed');
-                    }
-                });
-                updateProgress();
-            }
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', loadChecklistState);
-
-        // Embedded file data for downloads
-        const fileData = {
-            xlsx: {
-                data: "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",
-                filename: "Among_the_Dunes_Publisher_Database.xlsx",
-                mime: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            },
-            docx: {
-                data: "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",
-                filename: "Email_Query_Templates.docx",
-                mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            }
+    const header = sheetRows[0].map(h => h.trim().toLowerCase());
+    if (header[0] !== 'publisher') throw new Error('unexpected sheet header: ' + header.slice(0, 3));
+    return sheetRows.slice(1)
+      .filter(r => (r[0] || '').trim())
+      .map(r => {
+        const name = r[0].trim();
+        const fb = byName[name] || {};
+        return {
+          name,
+          priority: (r[1] || fb.priority || '').trim().toUpperCase(),
+          dateContacted: (r[2] || '').trim(),
+          status: (r[3] || '').trim(),
+          herNote: (r[4] || '').trim(),
+          type: (r[5] || '').trim() || fb.type || '',
+          why: (r[6] || '').trim() || fb.why || '',
+          email: (r[7] || '').trim() || fb.email || '',
+          url: (r[8] || '').trim() || fb.url || '',
+          caveat: (r[9] || '').trim() || fb.caveat || '',
+          pitch: (r[10] || '').trim() || fb.pitch || ''
         };
+      });
+  }
 
-        function downloadFile(type) {
-            const file = fileData[type];
-            const byteCharacters = atob(file.data);
-            const byteNumbers = new Array(byteCharacters.length);
-            for (let i = 0; i < byteCharacters.length; i++) {
-                byteNumbers[i] = byteCharacters.charCodeAt(i);
-            }
-            const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], { type: file.mime });
-            
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = file.filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(link.href);
-            
-            showToast(file.filename + ' downloaded!');
-        }
+  function renderPublishers(pubs) {
+    const body = document.getElementById('pub-body');
+    body.innerHTML = pubs.map(p => {
+      const pri = p.priority.toLowerCase();
+      const nameCell = p.url
+        ? `<a class="pub-link" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}<span class="ext">↗</span></a>`
+        : `<span class="pub-link">${esc(p.name)}</span>`;
+      const contact = p.email
+        ? `<a href="mailto:${esc(p.email)}">${esc(p.email)}</a>
+           <button class="copy-btn" onclick="copyEmail('${esc(p.email)}', this)" aria-label="Copy ${esc(p.email)}">copy</button>`
+        : '<span class="no-email">Submission form only</span>';
+      const opts = VALID_STATUSES.map(s =>
+        `<option value="${s}"${s === p.status ? ' selected' : ''}>${s}</option>`).join('');
+      const statusClass = (p.status || 'Not Started').replace(/ /g, '-').toLowerCase();
+      return `<tr class="pub-row" data-priority="${pri}">
+        <td class="col-pri"><span class="dot ${pri}" aria-hidden="true"></span><span class="pri-label">${PLABEL[p.priority] || esc(p.priority)}</span></td>
+        <td class="col-name">${nameCell}${p.type ? `<span class="pub-type">${esc(p.type)}</span>` : ''}</td>
+        <td class="col-why">
+          <p>${richText(p.why)}</p>
+          ${p.caveat ? `<p class="row-note"><span class="note-label">Note</span> ${richText(p.caveat)}</p>` : ''}
+          ${p.herNote ? `<p class="row-hernote"><span class="hernote-label">Your note</span> ${linkify(p.herNote)}</p>` : ''}
+          ${p.pitch ? `<p class="row-pitch">${richText(p.pitch)}</p>` : ''}
+        </td>
+        <td class="col-contact"><div class="contact">${contact}</div></td>
+        <td class="col-status">
+          <select class="status-dropdown ${statusClass}" data-publisher="${esc(p.name)}" onchange="updateStatus(this, '${esc(p.name).replace(/'/g, "\\'")}')" aria-label="Status for ${esc(p.name)}">${opts}</select>
+          ${p.dateContacted ? `<span class="date-sent">sent ${esc(p.dateContacted)}</span>` : ''}
+        </td>
+      </tr>`;
+    }).join('');
 
-    </script>
+    const counts = { HIGH: 0, MEDIUM: 0, LOW: 0 };
+    pubs.forEach(p => { if (counts[p.priority] !== undefined) counts[p.priority]++; });
+    const filters = [['all', 'All ' + pubs.length], ['high', 'High ' + counts.HIGH],
+                     ['medium', 'Medium ' + counts.MEDIUM], ['low', 'Worth trying ' + counts.LOW]];
+    document.getElementById('filters').innerHTML = filters
+      .filter(([k]) => k === 'all' || counts[k.toUpperCase()] > 0)
+      .map(([k, label], i) =>
+        `<button class="filter-btn${i === 0 ? ' active' : ''}" onclick="filterPublishers('${k}', this)">${label}</button>`)
+      .join('');
+    updateSummary();
+  }
+
+  function loadPublishers() {
+    const note = document.getElementById('source-note');
+    fetch(CSV_URL)
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(text => {
+        const pubs = buildPublishers(parseCSV(text));
+        if (!pubs.length) throw new Error('sheet returned no publishers');
+        renderPublishers(pubs);
+        note.innerHTML = 'This list is read from the <a href="https://docs.google.com/spreadsheets/d/1rFr_kkELlyQI4YOKCJ0J1_7xFfzhRHUQT5R7HkqHFWo/edit" target="_blank" rel="noopener">Google Sheet</a> — ' +
+          'add, remove or reword a publisher there and reload this page. Status changes here save back to it.';
+      })
+      .catch(err => {
+        console.log('Sheet unreachable (' + err.message + ') - showing the built-in list');
+        renderPublishers(buildPublishers(null));
+        applyCachedStatuses();
+        note.innerHTML = 'Could not reach the Google Sheet, so this is the built-in list and your ' +
+          'saved statuses from this browser. <a href="#" onclick="location.reload();return false;">Try again</a>.';
+      });
+  }
+
+  function applyCachedStatuses() {
+    document.querySelectorAll('.status-dropdown').forEach(select => {
+      const saved = localStorage.getItem('status_' + select.dataset.publisher);
+      if (saved && VALID_STATUSES.includes(saved)) applyStatus(select, saved);
+    });
+    updateSummary();
+  }
+
+  function showTemplate(id, btn) {
+    document.querySelectorAll('.email-template').forEach(t => t.classList.remove('active'));
+    document.getElementById('template-' + id).classList.add('active');
+    document.querySelectorAll('.tpl-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  function copyEmail(email, button) {
+    navigator.clipboard.writeText(email).then(() => {
+      button.textContent = 'copied';
+      button.classList.add('copied');
+      showToast(email + ' copied');
+      setTimeout(() => {
+        button.textContent = 'copy';
+        button.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  function copyTemplate(id) {
+    const tpl = document.getElementById('template-' + id);
+    const subject = tpl.querySelector('.email-subject').textContent.replace('Subject: ', '').trim();
+    const text = 'Subject: ' + subject + '\n\n' + tpl.querySelector('.email-body').innerText;
+    navigator.clipboard.writeText(text).then(() => showToast('Template copied to clipboard'));
+  }
+
+  /* ---- status: same sheet-sync contract as before ---- */
+  function applyStatus(select, status) {
+    select.value = status;
+    select.className = 'status-dropdown ' + status.replace(/ /g, '-').toLowerCase();
+  }
+
+  function updateStatus(select, publisher) {
+    const status = select.value;
+    applyStatus(select, status);
+    localStorage.setItem('status_' + publisher, status);
+    fetch(SHEET_API + '?action=update&publisher=' + encodeURIComponent(publisher) +
+          '&status=' + encodeURIComponent(status), { mode: 'no-cors' });
+    updateSummary();
+  }
+
+  function updateSummary() {
+    const counts = {};
+    const all = document.querySelectorAll('.status-dropdown');
+    if (!all.length) return;
+    all.forEach(s => {
+      counts[s.value || 'Not Started'] = (counts[s.value || 'Not Started'] || 0) + 1;
+    });
+    const parts = VALID_STATUSES
+      .filter(s => counts[s] && s !== 'Not Started')
+      .map(s => '<b>' + counts[s] + '</b> ' + s.toLowerCase());
+    const notStarted = counts['Not Started'] || 0;
+    parts.push('<b>' + notStarted + '</b> not started');
+    document.getElementById('summary').innerHTML = parts.join(' \u00b7 ');
+  }
+
+  function saveNotes() {
+    localStorage.setItem('personal_notes', document.getElementById('personal-notes').value);
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-message').textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2600);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadPublishers();
+    const saved = localStorage.getItem('personal_notes');
+    if (saved) document.getElementById('personal-notes').value = saved;
+  });
+</script>
 </body>
 </html>
